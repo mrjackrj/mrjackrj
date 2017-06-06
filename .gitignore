@@ -1,0 +1,15 @@
+.DS_Store
+.tm_properties
+public_html/uploads/*
+public_html/html*
+symfony/data/sql/*
+symfony/cache/*
+symfony/log/*
+symfony/config/databases.yml
+symfony/lib/filter/doctrine/base/Base*
+symfony/lib/filter/doctrine/*Plugin/base/Base*
+symfony/lib/form/doctrine/base/Base*
+symfony/lib/form/doctrine/*Plugin/base/Base*
+symfony/lib/model/doctrine/base/Base*
+symfony/lib/model/doctrine/*Plugin/base/Base*
+symfony/lib/vendor/*
