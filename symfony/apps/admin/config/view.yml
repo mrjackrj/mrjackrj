@@ -1,0 +1,21 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        MR. Jack - Assistência Técnica
+    description:  MR. Jack - Assistência Técnica a sua assistência técnica celular. Possuímos equipe especializada em assistência celular, tablets, Aparelhos Apple, Samsung, LG, Sony
+    keywords:     assistencia tecnica para celular,assistencia tecnica samsung rj celular,autorizada da apple no rio,conserto motorola celular,concerto de celular lg,apple no rio de janeiro,assistencia tecnica da apple no rio de janeiro, apple centro, apple tijuca, samsung tijuca, samsung centro
+    language:     pt-br
+    author:       Rodrigo Fournier
+    #robots:       index, follow
+
+  stylesheets:    [admin/bootstrap.min.css, admin/bootstrap-responsive.min.css, admin/jquery-ui-1.10.0.custom.css, footable.core.min.css, admin/font-awesome.min.css, admin/adminia.css, admin/adminia-responsive.css, admin.css]
+
+  javascripts:    [admin/jquery-1.9.0.min.js, admin/jquery-ui-1.10.0.custom.min.js, admin/bootstrap.min.js, footable.js, admin.js]
+
+  has_layout:     true
+  layout:         layout

@@ -1,0 +1,69 @@
+# # Populate this file with data to be loaded by your ORM's *:data-load task.
+# # You can create multiple files in this directory (i.e. 010_users.yml,
+# # 020_articles.yml, etc) which will be loaded in alphabetical order.
+# #
+# # See documentation for your ORM's *:data-load task for more information.
+#
+# User:
+#   fabien:
+#     username: fabien
+#     password: changeme
+#     name:     Fabien Potencier
+#     email:    fabien.potencier@symfony-project.com
+#   kris:
+#     username: Kris.Wallsmith
+#     password: changeme
+#     name:     Kris Wallsmith
+#     email:    kris.wallsmith@symfony-project.com
+Cliente:
+  adilson_felipe:
+    nome: Adilson felipe
+    email: adilsonrj36@hotmail.com
+    cpf: 93464452700
+
+  adriana_frazao:
+    nome: Adriana Frazao
+    email: adrianasfrazao@gmail.como
+    cpf: 01576506770
+
+Marca:
+  apple:
+    descricao: 'Apple'
+    imagem: '8716e114aebc167dec6fe95c166922b438bff0a1.jpg'
+
+  samsung:
+    descricao: 'Samsung'
+    imagem: 'c5772cc2bd9d1254173306afeadb687cf80b4053.jpg'
+
+  sony:
+    descricao: 'Sony'
+    imagem: '18680073bd6c77814cd288fd6d5d6ab83d116bda.jpg'
+
+Modelo:
+  iphone7:
+    nome: 'Iphone 7'
+    marca_id: 1
+
+Defeito:
+  tela_quebrada:
+    nome: 'Tela Quebrada'
+
+ModeloDefeito:
+  modelo_defeito_1:
+    modelo_id: 1
+    defeito_id: 1
+
+sfGuardUser:
+  sfGuardUser_1:
+    first_name: Administrador
+    last_name: 'do Sistema'
+    email_address: admin@gmail.com
+    username: admin
+    algorithm: sha1
+    salt: 76a0665dfeecb2aaafc6de238c2e989f
+    password: a67b56989fa8e5e772b0277754d1c6389e0d2b9b
+    is_active: true
+    is_super_admin: true
+    last_login: '2014-09-29 17:22:44'
+    created_at: '2013-04-30 01:04:29'
+    updated_at: '2014-09-29 17:22:44'

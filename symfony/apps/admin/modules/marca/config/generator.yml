@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Marca
+    theme:                 adminia
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                Marcas
+    route_prefix:          marca
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    icon:                 "fa fa-tag"
+
+    config:
+      actions: ~
+      fields:
+        descricao:      { label: Descrição }
+        created_at:      { label: Data de Criação }
+      list:
+        title:          Lista de Marcas
+        display:        [descricao, created_at]
+        sort:           ~
+        batch_actions:  []
+        object_actions:
+          _edit: { label: Editar }
+          _delete: { label: Excluir }
+        actions:
+          _new: { label: "Novo"}
+      filter:
+        display: [descricao]
+      form:    ~
+      edit:
+        title: Editando Marca "%%descricao%%"
+      new:
+        title: Adicionar Marca

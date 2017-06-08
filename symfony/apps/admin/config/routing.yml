@@ -1,0 +1,61 @@
+modelo_defeito:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ModeloDefeito
+    module:               modelo_defeito
+    prefix_path:          /modelo_defeito
+    column:               id
+    with_wildcard_routes: true
+
+defeito:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Defeito
+    module:               defeito
+    prefix_path:          /defeito
+    column:               id
+    with_wildcard_routes: true
+
+modelo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Modelo
+    module:               modelo
+    prefix_path:          /modelo
+    column:               id
+    with_wildcard_routes: true
+
+marca:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Marca
+    module:               marca
+    prefix_path:          /marca
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: main, action: index }
+
+sf_guard_user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardUser
+    module:               sf_guard_user
+    prefix_path:          /sf_guard_user
+    column:               id
+    with_wildcard_routes: true
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

@@ -1,0 +1,45 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardGroup
+    theme:                 adminia
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                Grupos de Acesso
+    route_prefix:          sf_guard_group
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    icon:                 "fa fa-group"
+
+    config:
+      fields:
+        name: { label: Nome }
+        description: { label: Descrição }
+        users_list: { label: Lista de Usuários }
+        permissions_list: { label: Lista de Permissões }
+        created_at: {label: "Criado em"}
+
+      list:
+        title:   Lista de Grupos
+        display: [=name, description, created_at]
+        batch_actions: {}
+        max_per_page: 10
+        object_actions:
+          _edit: { label: Editar }
+          _delete: { label: Excluir }
+        actions:
+          _new: { label: Novo Grupo }
+
+      filter:
+        display: [name, description]
+
+      form: ~
+
+      edit:
+        title: Grupos - Edição
+        display: [name, description, _users]
+
+      new:
+        title: Grupos - Adicionar Novo
+        display: [name, description, _users]

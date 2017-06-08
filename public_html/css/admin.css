@@ -1,0 +1,6 @@
+/********************** CAMPOS DE DATA NO ADM *****************/
+.sf_admin_date select, .sf_admin_time select, .simpla_admin_date select, .simpla_admin_filter_field_plantao_data_inicial select, .simpla_admin_filter_field_plantao_data_final select {width: 65px !important}
+
+.double_list_select, .double_list_select-selected {
+	width: 300px !important;
+}

@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Modelo
+    theme:                 adminia
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                Modelos
+    route_prefix:          modelo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    icon:                 "fa fa-suitcase"
+
+    config:
+      actions: ~
+      fields:
+        created_at:      { label: Data de Criação }
+      list:
+        title:          Lista de Modelos
+        display:        [nome, Marca, _defeitos, created_at]
+        sort:           ~
+        batch_actions:  []
+        object_actions:
+          _edit: { label: Editar }
+          _delete: { label: Excluir }
+        actions:
+          _new: { label: "Novo"}
+      filter:
+        display: [nome, marca_id]
+      form:    ~
+      edit:
+        title: Editando Modelo "%%nome%%"
+      new:
+        title: Adicionar Modelo

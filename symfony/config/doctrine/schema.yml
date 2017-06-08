@@ -1,0 +1,42 @@
+Cliente:
+  actAs:
+    Timestampable: ~
+  columns:
+    nome:            { type: string(250), notnull: true }
+    email:           { type: string(100), notnull: true }
+    cpf:             { type: string(25), notnull: true }
+
+Marca:
+  actAs:
+    Timestampable: ~
+  columns:
+    descricao:       { type: string(100), notnull: true }
+    imagem:          { type: string(250) }
+
+Defeito:
+  actAs:
+    Timestampable: ~
+  columns:
+    nome:            { type: string(250), notnull: true }
+  relations:
+    Modelos:        { onDelete: CASCADE, class: Modelo, local: defeito_id, foreign: modelo_id, refClass: ModeloDefeito }
+
+Modelo:
+  actAs:
+    Timestampable: ~
+  columns:
+    nome:            { type: string(100), notnull: true }
+    imagem:          { type: string(250) }
+    marca_id:        { type: integer }
+  relations:
+    Marca:           { local: marca_id, foreign: id }
+    Defeitos:        { onDelete: CASCADE, class: Defeito, local: modelo_id, foreign: defeito_id, refClass: ModeloDefeito }
+
+ModeloDefeito:
+  actAs:
+    Timestampable: ~
+  columns:
+    modelo_id:       { type: integer, notnull: true }
+    defeito_id:      { type: integer, notnull: true }
+    preco_dinheiro:  { type: decimal }
+    preco_cartao:    { type: decimal }
