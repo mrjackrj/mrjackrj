@@ -1,5 +1,3 @@
-Options +FollowSymLinks +ExecCGI
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
@@ -13,8 +11,8 @@ Options +FollowSymLinks +ExecCGI
   #RewriteRule .* - [L]
 
   # we check if the .html version is here (caching)
-  RewriteRule ^$ index.html [QSA]
-  RewriteRule ^([^.]+)$ $1.html [QSA]
+  RewriteRule ^$ index.htm [QSA]
+  RewriteRule ^([^.]+)$ $1.htm [QSA]
   RewriteCond %{REQUEST_FILENAME} !-f
 
   # no, so we redirect to our front web controller
