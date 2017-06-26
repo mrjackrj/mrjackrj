@@ -177,46 +177,43 @@
         <div class="row">
 
         <div class="col-md-8 col-sm-12">
-             <div class="promo-box gray-bg border-box" id="cadastro">
-                <div class="promo-info">
-                    <h2 class="text-extrabold text-uppercase">Curta nossa página para ganhar <br>5% de desconto!</h2>
-                    <div class="row">
+          <div class="promo-box gray-bg border-box" id="cadastro">
+            <form action="<?php echo url_for('@cliente') ?>" method="post" name="frmCliente" id="frmCliente">
+              <?php echo $form->renderHiddenFields() ?>
+              <div class="promo-info">
+                <h2 class="text-extrabold text-uppercase">Curta nossa página para ganhar <br>5% de desconto!</h2>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-field">
+                      <input type="text" name="nomeUser" class="validate" id="nomeUser">
+                      <label for="name" class="">Nome</label>
+                    </div>
+                  </div><!-- /.col-md-6 -->
 
-                <div class="col-md-6">
-                  <div class="input-field">
-                    <input type="text" name="nomeUser" class="validate" id="nomeUser">
-                    <label for="name" class="">Nome</label>
+                  <div class="col-md-3">
+                    <div class="input-field">
+                      <label class="sr-only" for="email">Email</label>
+                      <input id="emailUser" type="email" name="email" class="validate">
+                      <label for="emailUser" data-error="wrong" data-success="right" class="">Email</label>
+                    </div>
                   </div>
-                </div><!-- /.col-md-6 -->
 
-
-                <div class="col-md-3">
-                  <div class="input-field">
-                    <label class="sr-only" for="email">Email</label>
-                    <input id="emailUser" type="email" name="email" class="validate">
-                    <label for="emailUser" data-error="wrong" data-success="right" class="">Email</label>
-                  </div>
+                  <div class="col-md-3">
+                    <div class="input-field">
+                      <label class="sr-only" for="email">CPF</label>
+                      <input id="CPFUser" type="number" name="CPFUser" class="validate">
+                      <label for="CPFUser" data-error="wrong" data-success="right" class="">CPF</label>
+                    </div>
+                  </div><!-- /.col-md-6 -->
                 </div>
-
-                <div class="col-md-3">
-                  <div class="input-field">
-                    <label class="sr-only" for="email">CPF</label>
-                    <input id="CPFUser" type="number" name="CPFUser" class="validate">
-                    <label for="CPFUser" data-error="wrong" data-success="right" class="">CPF</label>
-                  </div>
-                </div><!-- /.col-md-6 -->
               </div>
-                </div>
 
-                <div class="promo-btn">
-
-                   <a href="#" class="btn btn-lg pink waves-effect waves-light" id="Cadastrar">Cadastrar-se</a>
-
-               </div>
-
-            </div>
-
+              <div class="promo-btn">
+                <a href="#" class="btn btn-lg pink waves-effect waves-light" id="Cadastrar">Cadastrar-se</a>
+              </div>
+            </form>
           </div>
+        </div>
 
 
           <div class="col-md-2 col-sm-12">
@@ -539,14 +536,18 @@
     $("#Cadastrar").click(function (evt) {
       if($("#nomeUser").val() && $("#emailUser").val() && $("#CPFUser").val()) {
         $.ajax({
-          url: '#',
-          type: 'GET',
-          data: { Nome: $("#nomeUser").val(), Email: $("#emailUser").val(), CPF: $("#CPFUser").val() }
+          url: '/cliente',
+          type: 'POST',
+          data: { 'cliente[nome]': $("#nomeUser").val(), 'cliente[email]': $("#emailUser").val(), 'cliente[cpf]': $("#CPFUser").val() }
+        }).done(function(data) {
+          $("#nomeUser").val('');
+          $("#emailUser").val('');
+          $("#CPFUser").val('');
+          alert(data);
         });
-        alert("Usuário salvo com sucesso. Clique em curtir nossa página para completar o cadastro!");
       } else {
         alert("Todos os campos são de preenchimento obrigatório!");
       }
     });
   });
-  </script>
+</script>

@@ -1,3 +1,30 @@
+contato:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Contato
+    module:               contato
+    prefix_path:          /contato
+    column:               id
+    with_wildcard_routes: true
+
+ordem_servico:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                OrdemServico
+    module:               ordem_servico
+    prefix_path:          /ordem_servico
+    column:               id
+    with_wildcard_routes: true
+
+cliente:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Cliente
+    module:               cliente
+    prefix_path:          /cliente
+    column:               id
+    with_wildcard_routes: true
+
 modelo_defeito:
   class: sfDoctrineRouteCollection
   options:

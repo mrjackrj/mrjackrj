@@ -1,0 +1,5 @@
+editSuccess:
+  javascripts:    [admin/os.js]
+
+newSuccess:
+  javascripts:    [admin/os.js]

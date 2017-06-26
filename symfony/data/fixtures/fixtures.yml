@@ -43,15 +43,31 @@ Modelo:
   iphone7:
     nome: 'Iphone 7'
     marca_id: 1
+  galaxys8:
+    nome: 'Galaxy S8'
+    marca_id: 2
 
 Defeito:
   tela_quebrada:
     nome: 'Tela Quebrada'
+  teclado_nao_funciona:
+    nome: 'Teclado não funciona'
+  touch_com_defeito:
+    nome: 'Touch com defeito'
 
 ModeloDefeito:
   modelo_defeito_1:
     modelo_id: 1
     defeito_id: 1
+  modelo_defeito_2:
+    modelo_id: 1
+    defeito_id: 2
+  modelo_defeito_3:
+    modelo_id: 1
+    defeito_id: 3
+  modelo_defeito_3:
+    modelo_id: 2
+    defeito_id: 3
 
 sfGuardUser:
   sfGuardUser_1:

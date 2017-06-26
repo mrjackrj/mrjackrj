@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           OrdemServico
+    theme:                 adminia
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                Ordens de Serviço
+    route_prefix:          ordem_servico
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    icon:                 "fa fa-file-text"
+
+    config:
+      actions: ~
+      fields:
+        created_at:      { label: Data de Criação }
+      list:
+        title:          Ordens de Serviço
+        display:        [id, created_at, valor, status]
+        sort:           ~
+        batch_actions:  []
+        object_actions:
+          _edit: { label: Editar }
+        actions:
+          _new: { label: "Novo"}
+      filter:
+          display: [modelo_defeito_id, cliente_id, pagamento, pago, troca, recorrente, testado, imei, data_retirada, status]
+      form:
+        display: [modelo_defeito_id, cliente_id, comentario, pagamento, valor, preco_dinheiro, preco_cartao, pago, troca, recorrente, testado, imei, senha, garantia, data_retirada, status]
+      edit:
+        title: Editando OS
+      new:
+        title: Adicionar OS

@@ -19,4 +19,16 @@ class ModeloDefeito extends BaseModeloDefeito
   public function getModelo() {
   	return ModeloTable::getInstance()->findOneById($this->getModeloId());
   }
+
+  public function getMarca() {
+    return $this->getModelo()->getMarca();
+  }
+
+  public function __toString() {
+		return $this->getMarca()." - ".$this->getModelo()." - ".$this->getDefeito();
+	}
+
+  public function asJson() {
+    return '{"id":'.$this->getId().',"preco_dinheiro":"'.$this->getPrecoDinheiro().'","preco_cartao":"'.$this->getPrecoCartao().'"}';
+  }
 }

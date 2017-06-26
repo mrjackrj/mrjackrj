@@ -12,5 +12,7 @@ class ModeloDefeitoForm extends BaseModeloDefeitoForm
 {
   public function configure()
   {
+    $this->widgetSchema['preco_dinheiro'] = new sfWidgetFormInputText(array(), array('class'=>'real input-block-level'));
+    $this->widgetSchema['preco_cartao'] = new sfWidgetFormInputText(array(), array('class'=>'real input-block-level'));
   }
 }

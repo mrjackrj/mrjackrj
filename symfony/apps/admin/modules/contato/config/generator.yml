@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Contato
+    theme:                 adminia
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                Contatos
+    route_prefix:          contato
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    icon:                 "fa fa-phone"
+
+    config:
+      actions: ~
+      fields:
+        created_at:      { label: Data de Criação }
+      list:
+        title:          Lista de Contatos
+        display:        [nome, email, assunto, created_at]
+        sort:           ~
+        batch_actions:  []
+        object_actions:
+          _edit: { label: Editar }
+          _delete: { label: Excluir }
+      filter:
+        display: [nome]
+      form:    ~
+      edit:
+        title: Editando Contato "%%nome%%"
+      new:     ~

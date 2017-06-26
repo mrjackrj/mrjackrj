@@ -13,4 +13,23 @@ require_once dirname(__FILE__).'/../lib/modelo_defeitoGeneratorHelper.class.php'
  */
 class modelo_defeitoActions extends autoModelo_defeitoActions
 {
+  const SUCCESS 			= 200;
+
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->modelo_defeito = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->modelo_defeito);
+
+    if($request->isXmlHttpRequest()) {
+      return $this->renderJson(array('code' => self::SUCCESS, 'error' => false, 'data' => $this->modelo_defeito->asJson()));
+      return $this->renderText('');
+    }
+  }
+
+  public function renderJson(array $data)
+	{
+  	$this->getResponse()->setContentType('application/json');
+  	$this->getResponse()->setContent(json_encode($data));
+  	return sfView::NONE;
+	}
 }

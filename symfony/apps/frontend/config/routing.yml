@@ -10,6 +10,10 @@ contato:
   url:   /contato
   param: { module: contato, action: index }
 
+cliente:
+  url:   /cliente
+  param: { module: main, action: cliente }
+
 precos:
   url:   /precos
   param: { module: precos, action: index }

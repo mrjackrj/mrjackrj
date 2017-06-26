@@ -1,3 +1,14 @@
+Filial:
+  actAs:
+    Timestampable: ~
+  columns:
+    endereco:       { type: string(200) }
+    bairro:         { type: string(80) }
+    numero:         { type: string(20) }
+    complemento:    { type: string(100) }
+    telefone1:      { type: string(25) }
+    telefone2:      { type: string(25) }
+
 Cliente:
   actAs:
     Timestampable: ~
@@ -5,6 +16,24 @@ Cliente:
     nome:            { type: string(250), notnull: true }
     email:           { type: string(100), notnull: true }
     cpf:             { type: string(25), notnull: true }
+    telefone:        { type: string(25) }
+    endereco:        { type: string(250) }
+    cidade:        { type: string(100) }
+    estado:        { type: string(50) }
+    observacoes:        { type: string }
+    filial_id:       { type: integer }
+  relations:
+    Filial:          { class: Filial, local: filial_id }
+
+Contato:
+  actAs:
+    Timestampable: ~
+  columns:
+    nome:            { type: string(250), notnull: true }
+    email:           { type: string(100), notnull: true }
+    telefone:        { type: string(25) }
+    assunto:        { type: string(250) }
+    mensagem:        { type: string }
 
 Marca:
   actAs:
@@ -38,5 +67,30 @@ ModeloDefeito:
   columns:
     modelo_id:       { type: integer, notnull: true }
     defeito_id:      { type: integer, notnull: true }
-    preco_dinheiro:  { type: decimal }
-    preco_cartao:    { type: decimal }
+    preco_dinheiro:  { type: string(20) }
+    preco_cartao:    { type: string(20) }
+  relations:
+    Modelo:        { class: Modelo, local: modelo_id }
+    Defeito:        { class: Defeito, local: defeito_id }
+
+OrdemServico:
+  actAs:
+    Timestampable: ~
+  columns:
+    modelo_defeito_id: { type: integer, notnull: true }
+    cliente_id:        { type: integer, notnull: true }
+    comentario:      { type: string }
+    pagamento:       { type: enum, values: [Dinheiro, Parcelado] }
+    pago:            { type: boolean }
+    troca:           { type: boolean }
+    recorrente:      { type: boolean }
+    testado:         { type: boolean }
+    imei:            { type: string(50) }
+    senha:           { type: string(25) }
+    garantia:        { type: string(50) }
+    valor:           { type: string(20) }
+    status:          { type: enum, values: [Aguardando, Finalizado, Cancelada, Entregue]}
+    data_retirada:   { type: timestamp }
+  relations:
+    ModeloDefeito:   { class: ModeloDefeito, local: modelo_defeito_id }
+    Cliente:         { class: Cliente, local: cliente_id }
