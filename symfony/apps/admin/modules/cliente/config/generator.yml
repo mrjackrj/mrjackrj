@@ -16,9 +16,10 @@ generator:
       actions: ~
       fields:
         created_at:      { label: Data de Criação }
+        ordem_servico:  { label: Ordem de Serviço }
       list:
         title:          Lista de Clientes
-        display:        [nome, email, cpf, created_at]
+        display:        [nome, email, cpf, _ordem_servico, created_at]
         sort:           ~
         batch_actions:  []
         object_actions:

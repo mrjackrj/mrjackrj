@@ -12,5 +12,10 @@ class OrdemServicoFormFilter extends BaseOrdemServicoFormFilter
 {
   public function configure()
   {
+    $this->widgetSchema['cliente_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
+      'url' => '/admin.php/autocomplete',
+      'model' => 'Cliente',
+      'value_callback' => 'findOneById'
+    ));
   }
 }

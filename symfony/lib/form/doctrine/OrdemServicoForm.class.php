@@ -17,6 +17,12 @@ class OrdemServicoForm extends BaseOrdemServicoForm
       'expanded'=>true
     ), array('style'=>'list-style:none;display:inline;padding:5px;'));
 
+    $this->widgetSchema['cliente_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
+      'url' => '/admin.php/autocomplete',
+      'model' => 'Cliente',
+      'value_callback' => 'findOneById'
+    ));
+
     $this->widgetSchema['preco_dinheiro'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['preco_cartao'] = new sfWidgetFormInputHidden();
 

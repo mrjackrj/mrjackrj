@@ -6,7 +6,7 @@ generator:
     non_verbose_templates: true
     with_show:             false
     singular:              ~
-    plural:                Modelo-Defeito
+    plural:                Defeitos
     route_prefix:          modelo_defeito
     with_doctrine_route:   true
     actions_base_class:    sfActions
@@ -18,8 +18,8 @@ generator:
         preco_cartao: { label: Parcelado }
         preco_dinheiro: { label: Dinheiro }
       list:
-        title:          Defeitos do Modelo
-        display:        [defeito, modelo, preco_cartao, preco_dinheiro]
+        title:          Defeitos do
+        display:        [defeito, preco_cartao, preco_dinheiro]
         sort:           ~
         batch_actions: {}
         object_actions:
@@ -28,7 +28,7 @@ generator:
         actions:
           _new: { label: "Novo"}
       filter:
-        class: false
+        display: [modelo_id, defeito_id]
       form:    ~
       edit:
         title: Editando

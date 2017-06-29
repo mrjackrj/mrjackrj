@@ -13,6 +13,15 @@ require_once dirname(__FILE__).'/../lib/clienteGeneratorHelper.class.php';
  */
 class clienteActions extends autoClienteActions
 {
+  public function executeOrdemServico(sfWebRequest $request)
+	{
+    $this->getUser()->setAttribute('ordem_servico.page', 1, 'admin_module');
+    $this->getUser()->setAttribute('ordem_servico.filters', array('cliente_id' => $this->getRequestParameter('id')), 'admin_module');
+    $this->getUser()->setAttribute('cliente', Doctrine::getTable('Cliente')->find(array($this->getRequestParameter('id'))));
+
+    $this->redirect($this->generateUrl('ordem_servico'));
+	}
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

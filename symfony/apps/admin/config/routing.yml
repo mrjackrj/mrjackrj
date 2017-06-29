@@ -61,6 +61,10 @@ marca:
     column:               id
     with_wildcard_routes: true
 
+autocomplete:
+  url: /autocomplete
+  param: { module: ordem_servico, action autocomplete }
+
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 

@@ -16,6 +16,11 @@ generator:
       actions: ~
       fields:
         created_at:      { label: Data de Criação }
+        pago:            { label: Pgto Efetuado }
+        troca:           { label: Troca de Peça }
+        recorrente:      { label: É Recorrente }
+        testado:         { label: Aparelho Testado? }
+        imei:            { label: IMEI }
       list:
         title:          Ordens de Serviço
         display:        [id, created_at, valor, status]

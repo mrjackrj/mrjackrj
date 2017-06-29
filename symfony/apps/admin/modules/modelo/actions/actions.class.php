@@ -16,7 +16,7 @@ class modeloActions extends autoModeloActions
   public function executeDefeitos(sfWebRequest $request)
 	{
     $this->getUser()->setAttribute('modelo_defeito.page', 1, 'admin_module');
-
+    $this->getUser()->setAttribute('modelo_defeito.filters', array('modelo_id' => $this->getRequestParameter('id')), 'admin_module');
     $this->getUser()->setAttribute('modelo', Doctrine::getTable('Modelo')->find(array($this->getRequestParameter('id'))));
 
     $this->redirect($this->generateUrl('modelo_defeito'));
