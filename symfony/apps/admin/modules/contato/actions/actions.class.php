@@ -13,4 +13,13 @@ require_once dirname(__FILE__).'/../lib/contatoGeneratorHelper.class.php';
  */
 class contatoActions extends autoContatoActions
 {
+  public function execute($request)
+  {
+		if(!$this->getUser()->hasGroup('Administradores')) {
+			$this->getUser()->setFlash('error', 'Você não tem permissão para realizar essa ação.');
+			$this->redirect('main/index');
+		}
+
+		return parent::execute($request);
+  }
 }

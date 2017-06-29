@@ -13,6 +13,16 @@ require_once dirname(__FILE__).'/../lib/modeloGeneratorHelper.class.php';
  */
 class modeloActions extends autoModeloActions
 {
+  public function execute($request)
+  {
+		if(!$this->getUser()->hasGroup('Administradores')) {
+			$this->getUser()->setFlash('error', 'Você não tem permissão para realizar essa ação.');
+			$this->redirect('main/index');
+		}
+
+		return parent::execute($request);
+  }
+  
   public function executeDefeitos(sfWebRequest $request)
 	{
     $this->getUser()->setAttribute('modelo_defeito.page', 1, 'admin_module');

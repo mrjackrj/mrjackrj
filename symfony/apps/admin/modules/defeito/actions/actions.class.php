@@ -13,4 +13,13 @@ require_once dirname(__FILE__).'/../lib/defeitoGeneratorHelper.class.php';
  */
 class defeitoActions extends autoDefeitoActions
 {
+  public function execute($request)
+  {
+		if(!$this->getUser()->hasGroup('Administradores')) {
+			$this->getUser()->setFlash('error', 'Você não tem permissão para realizar essa ação.');
+			$this->redirect('main/index');
+		}
+
+		return parent::execute($request);
+  }
 }

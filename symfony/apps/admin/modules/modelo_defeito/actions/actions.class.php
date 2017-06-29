@@ -15,6 +15,16 @@ class modelo_defeitoActions extends autoModelo_defeitoActions
 {
   const SUCCESS 			= 200;
 
+  public function execute($request)
+  {
+		if(!$this->getUser()->hasGroup('Administradores')) {
+			$this->getUser()->setFlash('error', 'Você não tem permissão para realizar essa ação.');
+			$this->redirect('main/index');
+		}
+
+		return parent::execute($request);
+  }
+
   public function executeEdit(sfWebRequest $request)
   {
     $this->modelo_defeito = $this->getRoute()->getObject();

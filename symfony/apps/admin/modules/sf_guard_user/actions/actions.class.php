@@ -13,4 +13,13 @@ require_once dirname(__FILE__).'/../lib/sf_guard_userGeneratorHelper.class.php';
  */
 class sf_guard_userActions extends autoSf_guard_userActions
 {
+  public function execute($request)
+  {
+		if(!$this->getUser()->hasGroup('Administradores') && !in_array(sfContext::getInstance()->getActionName(), array('edit', 'update'))) {
+			$this->getUser()->setFlash('error', 'Você não tem permissão para realizar essa ação.');
+			$this->redirect('main/index');
+		}
+
+		return parent::execute($request);
+  }
 }
