@@ -22,7 +22,6 @@ class modelo_defeitoActions extends autoModelo_defeitoActions
 
     if($request->isXmlHttpRequest()) {
       return $this->renderJson(array('code' => self::SUCCESS, 'error' => false, 'data' => $this->modelo_defeito->asJson()));
-      return $this->renderText('');
     }
   }
 

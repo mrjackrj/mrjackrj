@@ -39,13 +39,32 @@ Marca:
     descricao: 'Sony'
     imagem: '18680073bd6c77814cd288fd6d5d6ab83d116bda.jpg'
 
+  lg:
+    descricao: 'LG'
+    imagem: '06c1d34c68495725d294896c01aa6697d389e1e5.jpg'
+
+  asus:
+    descricao: 'ASUS'
+    imagem: '48d8e0b9bebbee7d70074223b81ed639e7b7c849.jpg'
+
+  motorola:
+    descricao: 'Motorola'
+    imagem: 'db149829014df88c9d31409cbc25fbc7aaf8c2ab.jpg'
+
+  nokia:
+    descricao: 'NOKIA'
+    imagem: '56e47d94cea817d75d808693feb6ff53d4572ebb.jpg'
+
 Modelo:
   iphone7:
     nome: 'Iphone 7'
     marca_id: 1
+    imagem: 'b18226dd9dc8c719372608580dd1c45df40428c9.jpg'
+
   galaxys8:
-    nome: 'Galaxy S8'
+    nome: 'S7 G930'
     marca_id: 2
+    imagem: ''
 
 Defeito:
   tela_quebrada:
@@ -59,15 +78,38 @@ ModeloDefeito:
   modelo_defeito_1:
     modelo_id: 1
     defeito_id: 1
+    preco_dinheiro: 200
+    preco_dinheiro: 250
   modelo_defeito_2:
     modelo_id: 1
     defeito_id: 2
+    preco_dinheiro: 300
+    preco_dinheiro: 320
   modelo_defeito_3:
     modelo_id: 1
     defeito_id: 3
+    preco_dinheiro: 280
+    preco_dinheiro: 290
   modelo_defeito_3:
     modelo_id: 2
     defeito_id: 3
+    preco_dinheiro: 340
+    preco_dinheiro: 380
+
+Filial:
+  rio_branco:
+    endereco: Av Rio branco
+    bairro: Centro
+    numero: 156
+    complemento: Lj. 25 - Stand 12
+    telefone1: (21)96971-7219
+    telefone2: (21)96927-1817
+  santo_afonso:
+    endereco: Santo Afonso
+    bairro: Tijuca
+    numero: 413
+    complemento: Loja d
+    telefone1: (21)96560-6686
 
 sfGuardUser:
   sfGuardUser_1:

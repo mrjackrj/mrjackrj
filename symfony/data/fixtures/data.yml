@@ -1,0 +1,194 @@
+Cliente:
+  Cliente_1:
+    nome: 'Adilson felipe'
+    email: adilsonrj36@hotmail.com
+    cpf: '93464452700'
+    telefone: null
+    endereco: null
+    cidade: null
+    estado: null
+    observacoes: null
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Cliente_2:
+    nome: 'Adriana Frazao'
+    email: adrianasfrazao@gmail.como
+    cpf: '234524152'
+    telefone: null
+    endereco: null
+    cidade: null
+    estado: null
+    observacoes: null
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+Defeito:
+  Defeito_1:
+    nome: 'Tela Quebrada'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Defeito_2:
+    nome: 'Teclado não funciona'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Defeito_3:
+    nome: 'Touch com defeito'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+Filial:
+  Filial_1:
+    endereco: 'Av Rio Branco'
+    bairro: Centro
+    numero: '156'
+    complemento: 'Lj. 25 - Stand 12'
+    telefone1: (21)96971-7219
+    telefone2: (21)96927-1817
+    created_at: '0000-00-00 00:00:00'
+    updated_at: '0000-00-00 00:00:00'
+  Filial_2:
+    endereco: 'Santo Afonso'
+    bairro: Tijuca
+    numero: '413'
+    complemento: 'Loja d'
+    telefone1: (21)96560-6686
+    telefone2: null
+    created_at: '0000-00-00 00:00:00'
+    updated_at: '0000-00-00 00:00:00'
+Marca:
+  Marca_1:
+    descricao: Apple
+    imagem: 8716e114aebc167dec6fe95c166922b438bff0a1.jpg
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+    slug: apple
+  Marca_2:
+    descricao: Samsung
+    imagem: c5772cc2bd9d1254173306afeadb687cf80b4053.jpg
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+    slug: samsung
+  Marca_3:
+    descricao: Sony
+    imagem: 18680073bd6c77814cd288fd6d5d6ab83d116bda.jpg
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+    slug: sony
+  Marca_4:
+    descricao: LG
+    imagem: 06c1d34c68495725d294896c01aa6697d389e1e5.jpg
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+    slug: lg
+  Marca_5:
+    descricao: ASUS
+    imagem: 48d8e0b9bebbee7d70074223b81ed639e7b7c849.jpg
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+    slug: asus
+  Marca_6:
+    descricao: Motorola
+    imagem: db149829014df88c9d31409cbc25fbc7aaf8c2ab.jpg
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+    slug: motorola
+  Marca_7:
+    descricao: NOKIA
+    imagem: 56e47d94cea817d75d808693feb6ff53d4572ebb.jpg
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+    slug: nokia
+Modelo:
+  Modelo_1:
+    nome: 'Iphone 7'
+    imagem: 6e5bf8b7ed1e330a5870e5d6d6b498f818c5485e.jpg
+    Marca: Marca_1
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 04:24:18'
+  Modelo_2:
+    nome: 'S7 G930'
+    imagem: 8efe1d4285f2aafc60ed105566d4dea87321b6b3.jpg
+    Marca: Marca_2
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 04:22:34'
+  Modelo_3:
+    nome: 'Iphone 6S'
+    imagem: 91d1ce72e8da2ca17a62c63ea3ea3f34e404c7e2.jpg
+    Marca: Marca_1
+    created_at: '2017-06-29 03:22:01'
+    updated_at: '2017-06-29 03:22:01'
+  Modelo_4:
+    nome: 'Iphone 6S Plus'
+    imagem: 3de09870b1959889b9890277d15dcf283c661e30.jpg
+    Marca: Marca_1
+    created_at: '2017-06-29 03:22:21'
+    updated_at: '2017-06-29 03:22:21'
+ModeloDefeito:
+  ModeloDefeito_1:
+    Modelo: Modelo_1
+    Defeito: Defeito_1
+    preco_dinheiro: '400'
+    preco_cartao: '450'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  ModeloDefeito_2:
+    Modelo: Modelo_1
+    Defeito: Defeito_2
+    preco_dinheiro: '300'
+    preco_cartao: '350'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  ModeloDefeito_3:
+    Modelo: Modelo_2
+    Defeito: Defeito_3
+    preco_dinheiro: '360'
+    preco_cartao: '400'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  ModeloDefeito_4:
+    Modelo: Modelo_3
+    Defeito: Defeito_2
+    preco_dinheiro: '380'
+    preco_cartao: '400'
+    created_at: '2017-06-29 03:22:01'
+    updated_at: '2017-06-29 03:30:19'
+  ModeloDefeito_5:
+    Modelo: Modelo_3
+    Defeito: Defeito_3
+    preco_dinheiro: '500'
+    preco_cartao: '550'
+    created_at: '2017-06-29 03:22:01'
+    updated_at: '2017-06-29 03:30:35'
+  ModeloDefeito_6:
+    Modelo: Modelo_4
+    Defeito: Defeito_1
+    preco_dinheiro: '600'
+    preco_cartao: '700'
+    created_at: '2017-06-29 03:22:21'
+    updated_at: '2017-06-29 03:30:45'
+  ModeloDefeito_7:
+    Modelo: Modelo_4
+    Defeito: Defeito_2
+    preco_dinheiro: '600'
+    preco_cartao: '650'
+    created_at: '2017-06-29 03:22:21'
+    updated_at: '2017-06-29 03:30:56'
+  ModeloDefeito_8:
+    Modelo: Modelo_4
+    Defeito: Defeito_3
+    preco_dinheiro: '700'
+    preco_cartao: '750'
+    created_at: '2017-06-29 03:22:21'
+    updated_at: '2017-06-29 03:31:07'
+sfGuardUser:
+  sfGuardUser_1:
+    first_name: 'Administrador do sistema'
+    last_name: null
+    email_address: admin@mrjackrj.com.br
+    username: admin
+    algorithm: sha1
+    salt: 6d34026802579b7cd5be406ab5acf5be
+    password: afa1b938266e2b2de775d821f499174e51fc1bd0
+    is_active: true
+    is_super_admin: true
+    last_login: '2017-06-29 03:20:25'
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'

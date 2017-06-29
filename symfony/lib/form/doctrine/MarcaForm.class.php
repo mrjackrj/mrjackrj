@@ -24,7 +24,7 @@ class MarcaForm extends BaseMarcaForm
             <img src="%file%" /><br />
             <div style="float:left;">%delete%</div>
             <div style="float:left;">%delete_label%</div>
-          </div>
+          </div><br />
         ',
     ));
 

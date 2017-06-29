@@ -26,6 +26,14 @@ servicos:
   url:   /servicos
   param: { module: servicos, action: index }
 
+aparelhos:
+  url:   /aparelhos/:marca
+  param: { module: aparelhos, action: index }
+
+modelo_defeito:
+  url:  /modelo_defeito/modelo/:modelo_id/defeito/:defeito_id
+  param: { module: main, action: modeloDefeito }
+
 # generic rules
 # please, remove them by adding more specific rules
 default_index:

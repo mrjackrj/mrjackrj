@@ -10,6 +10,8 @@
  */
 class mainActions extends sfActions
 {
+  const SUCCESS 			= 200;
+
  /**
   * Executes index action
   *
@@ -30,12 +32,7 @@ class mainActions extends sfActions
         if ($this->form->isValid()) {
           $clienteRequest = $request->getParameter('cliente');
 
-          $email = $clienteRequest['email'];
           $cpf   = $clienteRequest['cpf'];
-
-          if(ClienteTable::getInstance()->findOneByEmail($email) != null) {
-            return $this->renderText('Já existe outro cliente cadastrado com esse email.');
-          }
 
           if(ClienteTable::getInstance()->findOneByCpf($cpf) != null) {
             return $this->renderText('Já existe outro cliente cadastrado com esse CPF.');
@@ -49,4 +46,20 @@ class mainActions extends sfActions
         }
     }
   }
+
+  public function executeModeloDefeito(sfWebRequest $request)
+  {
+    $modeloId   = $request->getParameter('modelo_id');
+    $defeitoId  = $request->getParameter('defeito_id');
+    $this->modelo_defeito = ModeloDefeitoTable::getInstance()->findOneByModeloIdAndDefeitoId($modeloId, $defeitoId);
+
+    return $this->renderJson(array('code' => self::SUCCESS, 'error' => false, 'data' => $this->modelo_defeito->asJson()));
+  }
+
+  public function renderJson(array $data)
+	{
+  	$this->getResponse()->setContentType('application/json');
+  	$this->getResponse()->setContent(json_encode($data));
+  	return sfView::NONE;
+	}
 }

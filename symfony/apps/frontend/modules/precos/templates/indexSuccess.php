@@ -31,7 +31,7 @@
                   <div class="portfolio-wrapper">
 
                     <div class="thumb">
-                        <a href="http://admin.mrjackrj.com.br/aparelhos/buscar?IdMarca=26" ><img src="assets/img/apple.jpg" alt=""></a>
+                        <a href="<?php echo url_for('@aparelhos?marca=apple') ?>" ><img src="assets/img/apple.jpg" alt=""></a>
                     </div><!-- thumb -->
 
                   </div><!-- /.portfolio-wrapper -->
@@ -41,7 +41,7 @@
                   <div class="portfolio-wrapper">
 
                     <div class="thumb">
-                        <a href="http://admin.mrjackrj.com.br/aparelhos/buscar?IdMarca=29" ><img src="assets/img/samsung.jpg" alt=""></a>
+                        <a href="<?php echo url_for('@aparelhos?marca=samsung') ?>" ><img src="assets/img/samsung.jpg" alt=""></a>
                     </div><!-- thumb -->
 
                   </div><!-- /.portfolio-wrapper -->
@@ -51,7 +51,7 @@
                   <div class="portfolio-wrapper">
 
                     <div class="thumb">
-                        <a href="http://admin.mrjackrj.com.br/aparelhos/buscar?IdMarca=31" ><img src="assets/img/sony.jpg" alt=""></a>
+                        <a href="<?php echo url_for('@aparelhos?marca=sony') ?>" ><img src="assets/img/sony.jpg" alt=""></a>
                     </div><!-- thumb -->
 
                   </div><!-- /.portfolio-wrapper -->
@@ -61,7 +61,7 @@
                   <div class="portfolio-wrapper">
 
                     <div class="thumb">
-                        <a href="http://admin.mrjackrj.com.br/aparelhos/buscar?IdMarca=32" ><img src="assets/img/lg.jpg" alt=""></a>
+                        <a href="<?php echo url_for('@aparelhos?marca=lg') ?>" ><img src="assets/img/lg.jpg" alt=""></a>
                     </div><!-- thumb -->
 
                   </div><!-- /.portfolio-wrapper -->
@@ -71,7 +71,7 @@
                   <div class="portfolio-wrapper">
 
                     <div class="thumb">
-                        <a href="http://admin.mrjackrj.com.br/aparelhos/buscar?IdMarca=30" ><img src="assets/img/asus.jpg" alt=""></a>
+                        <a href="<?php echo url_for('@aparelhos?marca=asus') ?>" ><img src="assets/img/asus.jpg" alt=""></a>
                     </div><!-- thumb -->
 
                   </div><!-- /.portfolio-wrapper -->
@@ -81,7 +81,7 @@
                   <div class="portfolio-wrapper">
 
                     <div class="thumb">
-                        <a href="http://admin.mrjackrj.com.br/aparelhos/buscar?IdMarca=27" ><img src="assets/img/motorola.jpg" alt=""></a>
+                        <a href="<?php echo url_for('@aparelhos?marca=motorola') ?>" ><img src="assets/img/motorola.jpg" alt=""></a>
                     </div><!-- thumb -->
 
                   </div><!-- /.portfolio-wrapper -->
@@ -91,7 +91,7 @@
                   <div class="portfolio-wrapper">
 
                     <div class="thumb">
-                        <a href="http://admin.mrjackrj.com.br/aparelhos/buscar?IdMarca=28" ><img src="assets/img/nokia.jpg" alt=""></a>
+                        <a href="<?php echo url_for('@aparelhos?marca=nokia') ?>" ><img src="assets/img/nokia.jpg" alt=""></a>
                     </div><!-- thumb -->
 
                   </div><!-- /.portfolio-wrapper -->

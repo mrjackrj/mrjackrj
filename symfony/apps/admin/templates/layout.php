@@ -6,7 +6,7 @@
     <?php include_metas() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include_title() ?>
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/assets/img/ico/favicon.png" />
     <?php include_stylesheets() ?>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
     <?php include_javascripts() ?>

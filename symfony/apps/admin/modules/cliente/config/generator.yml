@@ -25,7 +25,7 @@ generator:
           _edit: { label: Editar }
           _delete: { label: Excluir }
       filter:
-        display: [nome]
+        display: [nome, cpf, email, cidade, estado, filial_id]
       form:    ~
       edit:
         title: Editando Cliente "%%nome%%"

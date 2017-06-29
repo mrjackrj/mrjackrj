@@ -38,6 +38,10 @@ Contato:
 Marca:
   actAs:
     Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [descricao]
+      canUpdate: true
   columns:
     descricao:       { type: string(100), notnull: true }
     imagem:          { type: string(250) }

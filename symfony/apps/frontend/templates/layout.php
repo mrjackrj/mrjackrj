@@ -5,7 +5,7 @@
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <?php include_title() ?>
-    <link rel="shortcut icon" href="assets/img/ico/favicon.png">
+    <link rel="shortcut icon" href="/assets/img/ico/favicon.png">
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
     <!--  favicon -->
@@ -21,38 +21,38 @@
 
     <!-- Material Icons CSS -->
 
-    <link href="assets/fonts/iconfont/material-icons.css" rel="stylesheet">
+    <link href="/assets/fonts/iconfont/material-icons.css" rel="stylesheet">
 
     <!-- FontAwesome CSS -->
 
-    <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- magnific-popup -->
 
-    <link href="assets/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- owl.carousel -->
 
 
-    <link href="assets/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
+    <link href="/assets/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
 
-    <link href="assets/owl.carousel/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/assets/owl.carousel/assets/owl.theme.default.min.css" rel="stylesheet">
 
     <!-- flexslider -->
 
-    <link href="assets/flexSlider/flexslider.css" rel="stylesheet">
+    <link href="/assets/flexSlider/flexslider.css" rel="stylesheet">
 
     <!-- materialize -->
 
-    <link href="assets/materialize/css/materialize.min.css" rel="stylesheet">
+    <link href="/assets/materialize/css/materialize.min.css" rel="stylesheet">
 
     <!-- Bootstrap -->
 
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- shortcodes -->
 
-    <link href="assets/css/shortcodes/shortcodes.css" rel="stylesheet">
+    <link href="/assets/css/shortcodes/shortcodes.css" rel="stylesheet">
 
     <!-- Style CSS -->
 
@@ -63,12 +63,12 @@
 
     <!-- RS5.0 Main Stylesheet -->
 
-    <link rel="stylesheet" type="text/css" href="assets/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revolution/css/settings.css">
 
     <!-- RS5.0 Layers and Navigation Styles -->
 
-    <link rel="stylesheet" type="text/css" href="assets/revolution/css/layers.css">
-    <link rel="stylesheet" type="text/css" href="assets/revolution/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="/assets/revolution/css/navigation.css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -152,7 +152,7 @@
     <!-- Preloader -->
     <div id="preloader">
       <div class="preloader-position">
-        <img src="assets/img/logo.jpg" alt="logo" >
+        <img src="/assets/img/logo.jpg" alt="logo" >
         <div class="progress">
           <div class="indeterminate"></div>
         </div>
