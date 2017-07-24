@@ -12,6 +12,40 @@
  */
 class Cliente extends BaseCliente
 {
+  public function save(Doctrine_Connection $conn = null) {
+
+		$user;
+		if($this->getUserId() == null) {
+			$user 	= new sfGuardUser();
+		} else {
+			$user 	= $this->getUser();
+		}
+
+		$user->setEmailAddress($this->getEmail());
+		$user->setFirstName($this->getNome());
+    $user->setGroups(sfGuardGroupTable::getInstance()->findByName('Clientes'));
+
+		$this->setUser($user);
+
+		$conn = $conn ? $conn : $this->getTable()->getConnection();
+		$conn->beginTransaction();
+
+		try
+		{
+
+			$ret = parent::save($conn);
+
+			$conn->commit();
+
+			return $ret;
+
+		} catch(Exception $e) {
+
+			$conn->rollBack();
+			throw $e;
+		}
+	}
+
   public function __toString() {
 		return $this->getNome();
 	}

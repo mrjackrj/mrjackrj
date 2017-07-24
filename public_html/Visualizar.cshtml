@@ -1,0 +1,126 @@
+﻿@model MrJack.Models.OSDefeitosViewModel
+
+@{
+    ViewBag.Title = "Visualizar";
+}
+
+<div class="page-content container-fluid" id="printable">
+    <div class="widget">
+        <div class="widget-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <address>
+                        <strong>
+                            @Html.DisplayFor(model => model.OS.usuario.Nome)
+                    </strong><br>@Html.DisplayFor(model => model.OS.usuario.Endereco)<br> @Html.DisplayFor(model => model.OS.usuario.Cidade) - @Html.DisplayFor(model => model.OS.usuario.Estado) <br><abbr title="Phone">T:</abbr> @Html.DisplayFor(model => model.OS.usuario.Telefone)<br><a href="mailto:#">@Html.DisplayFor(model => model.OS.usuario.Email)</a>
+                </address>
+            </div>
+            <div class="col-sm-4">
+                <address><strong>Filial</strong><br>@Html.DisplayFor(model => model.OS.quemCadastrou.filial.Endereco)<br>@Html.DisplayFor(model => model.OS.quemCadastrou.filial.Bairro)<br><abbr title="Phone">T:</abbr> @Html.DisplayFor(model => model.OS.quemCadastrou.filial.Telefone1)<br><a href="mailto:#"></a></address>
+            </div>
+            <div class="col-sm-4">
+                <ul class="list-unstyled">
+                    <li>Ordem de serviço <strong>@Html.DisplayFor(model => model.OS.Id)</strong></li>
+                    <li>Aberta em @Html.DisplayFor(model => model.OS.dataInclusao)</li>
+                    <li>
+                        Data de Modificação: @if (Model.OS.dataModificacao.ToString() != "01/01/0001 00:00:00")
+                        { @Html.DisplayFor(model => model.OS.dataModificacao)
+                        }
+                    </li>
+                    @if (Model.OS.status == MrJack.Dominio.StatusOS.Aguardando)
+                    {
+                        <li><strong>Status: Aguardando</strong></li>
+                    }
+
+                    @if (Model.OS.status == MrJack.Dominio.StatusOS.Cancelada)
+                    {
+                        <li><strong>Status: Cancelada</strong></li>
+                    }
+
+                    @if (Model.OS.status == MrJack.Dominio.StatusOS.Entregue)
+                    {
+                        <li><strong>Status: Entregue</strong></li>
+                    }
+                    @if (Model.OS.status == MrJack.Dominio.StatusOS.Finalizado)
+                    {
+                        <li><strong>Status: Finalizado</strong></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th>Aparelho</th>
+                        <th>Defeito</th>
+                        <th class="center">Pagamento</th>
+                        <th class="right">Status</th>
+                        <th class="right">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left">@Html.DisplayFor(model => model.Defeitos.defeitoValor.modelo.tipoMarca.Descricao)</td>
+                        <td class="left">@Html.DisplayFor(model => model.Defeitos.defeitoValor.Defeito)</td>
+                        <td class="center">@Html.DisplayFor(model => model.OS.pago)</td>
+                        @if (Model.OS.status == MrJack.Dominio.StatusOS.Aguardando)
+                        {
+                            <td class="right">Aguardando</td>
+                        }
+                        else
+                        {
+                            <td class="right">Finalizado</td>
+                        }
+                        <td class="right">R$ @Html.DisplayFor(model => model.OS.ValorTotal)</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <p>
+                    Comentários: @Html.DisplayFor(model => model.OS.comentarios)
+                </p>
+            </div>
+            <div class="col-md-2 col-md-offset-2">
+                <button type="button" class="btn btn-raised btn-primary" onclick="window.open('@Url.Action("Impressao", "OrdemServico", new { id = Model.OS.Id })','_blank')"><i class="ti-printer"></i> Imprimir NF</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-raised btn-primary" onclick="window.open('@Url.Action("ImpressaoGarantia", "OrdemServico", new { id = Model.OS.Id })','_blank')"><i class="ti-printer"></i> Imprimir Garantia</button>
+            </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade in active" id="tab-18">
+            <p><h2>Escopo da Cobertura da Garantia</h2></p>
+
+            <p>- Tela/LCD e quaisquer outras peças consertadas ou substituídas que funcionem mal, ou não funcionem como planejadas ou projetadas (sem imagem, sem sensor de toque, aro solto)</p>
+            <p>- A garantia é limitada às peças e/ou serviço (s) que tenham sido prestados, salvo nas situações descritas abaixo.</p>
+            <p><h2>Após o conserto do aparelho pelo Mr Jack, a garantia não cobre:</h2></p>
+
+            <p>- Mau uso subsequente que faz a moldura (carcaça) empenar ou quebrar.</p>
+            <p>- Danos provocados por água;</p>
+            <p>- Quedas subsequentes, acidentais ou propositais;</p>
+            <p>- Adulteração de hardware interno;</p>
+            <p>- Danos resultantes de tentativas de conserto do cliente (não executadas por um técnico do Mr Jack);</p>
+            <p>- Problemas de software não relacionados com o conserto;</p>
+            <p>- Dispositivos desbloqueados com métodos não autorizados pelo fabricante (como jailbreak ou Root);</p>
+            <p>- Novos danos não relacionados com o conserto original;</p>
+            <p>- Qualquer perda de dados que ocorra como resultado do conserto. Os clientes são orientados a fazer o backup de todos os dados antes da tentativa de conserto.</p>
+            <p>- Displays: cabo flex danificado por má perícia na instalação, arranhões, danos no vidro, danos ao aro, danos causados por água, danos no LCD</p>
+            <p>Nossa garantia também não cobre o resultado de um conserto no evento de determinadas condições preexistentes ao conserto, inclusive:</p>
+            <p>- Existência de problemas de fabricação já conhecidos e/ou problemas de performance relacionados com o dispositivo independentemente do conserto, conforme observado antes do conserto.</p>
+            <p>- Existência de dano à moldura (carcaça) do dispositivo, conforme observado antes do conserto.</p>
+            <p>- Danos provocados por água.</p>
+            <p>- Dispositivos desbloqueados com métodos não aceitos pelo fabricante (como jailbreak ou Root).</p>
+            <p>- Adulteração do hardware interno: dependendo das condições, um dano interno pode impossibilitar um conserto. O técnico do Mr Jack será capaz de explicar em maiores detalhes após diagnosticar o seu dispositivo específico. Em caso de dúvida, recomendamos que você não tente consertar por conta própria, pois um dano pode resultar na impossibilidade de conserto do seu dispositivo.</p>
+            <p>
+                - Um botão “home” que não funcione/leitor Biométrico danificado ou cortado.
+            </p>
+        </div>
+    </div>
+</div>
+</div>

@@ -23,6 +23,11 @@ class OrdemServicoForm extends BaseOrdemServicoForm
       'value_callback' => 'findOneById'
     ));
 
+    $this->widgetSchema['senha'] = new sfWidgetFormInputText(array(), array('style'=>'display:none'));
+    $this->widgetSchema->setLabels(array(
+			'senha' => ' ',
+		));
+    $this->widgetSchema['usuario_cadastro_id'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['preco_dinheiro'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['preco_cartao'] = new sfWidgetFormInputHidden();
 

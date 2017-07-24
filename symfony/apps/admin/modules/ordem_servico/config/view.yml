@@ -3,3 +3,6 @@ editSuccess:
 
 newSuccess:
   javascripts:    [admin/os.js]
+
+listShowSuccess:
+  stylesheets:    [admin/first-layout.css]

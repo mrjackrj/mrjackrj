@@ -21,9 +21,14 @@ Cliente:
     cidade:        { type: string(100) }
     estado:        { type: string(50) }
     observacoes:        { type: string }
-    filial_id:       { type: integer }
+    user_id:         { type: integer }
   relations:
-    Filial:          { class: Filial, local: filial_id }
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+      onDelete: CASCADE
 
 Contato:
   actAs:
@@ -61,6 +66,7 @@ Modelo:
     nome:            { type: string(100), notnull: true }
     imagem:          { type: string(250) }
     marca_id:        { type: integer }
+    mostrar_site:    { type: boolean, default: 1 }
   relations:
     Marca:           { local: marca_id, foreign: id }
     Defeitos:        { onDelete: CASCADE, class: Defeito, local: modelo_id, foreign: defeito_id, refClass: ModeloDefeito }
@@ -83,6 +89,7 @@ OrdemServico:
   columns:
     modelo_defeito_id: { type: integer, notnull: true }
     cliente_id:        { type: integer, notnull: true }
+    usuario_cadastro_id: { type: integer }
     comentario:      { type: string }
     pagamento:       { type: enum, values: [Dinheiro, Parcelado] }
     pago:            { type: boolean }
@@ -90,11 +97,61 @@ OrdemServico:
     recorrente:      { type: boolean }
     testado:         { type: boolean }
     imei:            { type: string(50) }
+    com_senha:       { type: boolean }
     senha:           { type: string(25) }
     garantia:        { type: string(50) }
     valor:           { type: string(20) }
+    mensagem_impressao: { type: string }
     status:          { type: enum, values: [Aguardando, Finalizado, Cancelada, Entregue]}
     data_retirada:   { type: timestamp }
   relations:
     ModeloDefeito:   { class: ModeloDefeito, local: modelo_defeito_id }
     Cliente:         { class: Cliente, local: cliente_id }
+    UsuarioCadastro: { class: sfGuardUser, local: usuario_cadastro_id }
+
+sfGuardUser:
+  actAs: [Timestampable]
+  columns:
+    first_name: string(255)
+    last_name: string(255)
+    email_address:
+      type: string(255)
+      notnull: true
+      unique: true
+    username:
+      type: string(128)
+    algorithm:
+      type: string(128)
+      default: sha1
+      notnull: true
+    salt: string(128)
+    password: string(128)
+    is_active:
+      type: boolean
+      default: 1
+    is_super_admin:
+      type: boolean
+      default: false
+    last_login:
+      type: timestamp
+    filial_id:
+      type: integer
+  indexes:
+    is_active_idx:
+      fields: [is_active]
+  relations:
+    Groups:
+      class: sfGuardGroup
+      local: user_id
+      foreign: group_id
+      refClass: sfGuardUserGroup
+      foreignAlias: Users
+    Permissions:
+      class: sfGuardPermission
+      local: user_id
+      foreign: permission_id
+      refClass: sfGuardUserPermission
+      foreignAlias: Users
+    Filial:
+      class: Filial
+      local: filial_id

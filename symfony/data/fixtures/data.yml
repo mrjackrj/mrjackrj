@@ -123,57 +123,57 @@ Modelo:
     updated_at: '2017-06-29 03:22:21'
 ModeloDefeito:
   ModeloDefeito_1:
-    Modelo: Modelo_1
-    Defeito: Defeito_1
+    modelo_id: 1
+    defeito_id: 1
     preco_dinheiro: '400'
     preco_cartao: '450'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
   ModeloDefeito_2:
-    Modelo: Modelo_1
-    Defeito: Defeito_2
+    modelo_id: 1
+    defeito_id: 2
     preco_dinheiro: '300'
     preco_cartao: '350'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
   ModeloDefeito_3:
-    Modelo: Modelo_2
-    Defeito: Defeito_3
+    modelo_id: 2
+    defeito_id: 3
     preco_dinheiro: '360'
     preco_cartao: '400'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
   ModeloDefeito_4:
-    Modelo: Modelo_3
-    Defeito: Defeito_2
+    modelo_id: 3
+    defeito_id: 2
     preco_dinheiro: '380'
     preco_cartao: '400'
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:30:19'
   ModeloDefeito_5:
-    Modelo: Modelo_3
-    Defeito: Defeito_3
+    modelo_id: 3
+    defeito_id: 3
     preco_dinheiro: '500'
     preco_cartao: '550'
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:30:35'
   ModeloDefeito_6:
-    Modelo: Modelo_4
-    Defeito: Defeito_1
+    modelo_id: 4
+    defeito_id: 1
     preco_dinheiro: '600'
     preco_cartao: '700'
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:30:45'
   ModeloDefeito_7:
-    Modelo: Modelo_4
-    Defeito: Defeito_2
+    modelo_id: 4
+    defeito_id: 2
     preco_dinheiro: '600'
     preco_cartao: '650'
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:30:56'
   ModeloDefeito_8:
-    Modelo: Modelo_4
-    Defeito: Defeito_3
+    modelo_id: 4
+    defeito_id: 3
     preco_dinheiro: '700'
     preco_cartao: '750'
     created_at: '2017-06-29 03:22:21'
@@ -184,11 +184,82 @@ sfGuardUser:
     last_name: null
     email_address: admin@mrjackrj.com.br
     username: admin
+    filial_id: 1
     algorithm: sha1
     salt: 6d34026802579b7cd5be406ab5acf5be
     password: afa1b938266e2b2de775d821f499174e51fc1bd0
     is_active: true
     is_super_admin: true
     last_login: '2017-06-29 03:20:25'
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'
+  jack_salloum:
+    first_name: 'Jack Salloum'
+    last_name: null
+    email_address: jacksallom@gmail.com
+    username: jack
+    filial_id: 2
+    algorithm: sha1
+    salt: b38b5197861128230d246c6b0086e8c0
+    password: 2a84a570480fcf86375bf4bf03a395a4ddff2667
+    is_active: true
+    is_super_admin: true
+    last_login: '2017-06-29 03:20:25'
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'
+  pamella_oliveira:
+    first_name: 'Pamella Oliveira'
+    last_name: null
+    email_address: pamellaoliveira@gmail.com
+    username: pamella
+    filial_id: 1
+    algorithm: sha1
+    salt: 126a51f1426c2d83a52536d075edc91b
+    password: 2872798e8a98bdba341852d3569ac79589b4d3d1
+    is_active: true
+    is_super_admin: true
+    last_login: '2017-06-29 03:20:25'
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: Administradores
+    description: Grupo de administradores do sistema.
+    created_at: '2017-06-29 18:21:41'
+    updated_at: '2017-06-29 18:21:41'
+  sfGuardGroup_2:
+    name: Gerentes
+    description: Grupo de gerentes do sistema.
+    created_at: '2017-06-29 18:21:41'
+    updated_at: '2017-06-29 18:21:41'
+  sfGuardGroup_3:
+    name: Clientes
+    description: Grupo dos clientes do sistema.
+    created_at: '2017-06-29 18:21:41'
+    updated_at: '2017-06-29 18:21:41'
+sfGuardUserGroup:
+  sfGuardUserGroup_1:
+    user_id: 1
+    group_id: 1
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'
+  sfGuardUserGroup_2:
+    user_id: 2
+    group_id: 1
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'
+  sfGuardUserGroup_3:
+    user_id: 3
+    group_id: 2
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'
+  sfGuardUserGroup_4:
+    user_id: 4
+    group_id: 3
+    created_at: '2017-06-01 13:13:43'
+    updated_at: '2017-06-29 03:20:25'
+  sfGuardUserGroup_5:
+    user_id: 5
+    group_id: 3
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'

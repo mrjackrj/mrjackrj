@@ -61,8 +61,6 @@ sfGuardUser:
       unique: true
     username:
       type: string(128)
-      notnull: true
-      unique: true
     algorithm:
       type: string(128)
       default: sha1

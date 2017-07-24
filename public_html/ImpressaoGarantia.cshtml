@@ -1,0 +1,133 @@
+﻿@model MrJack.Models.OSDefeitosViewModel
+@{
+    ViewBag.Title = "Impressao";
+    Layout = "";
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel - MR. Jack Assistência técnica</title>
+    <!-- PACE-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/PACE/themes/blue/pace-theme-flash.css">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/themify-icons/themify-icons.css">
+    <!-- Malihu Scrollbar-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+    <!-- Animo.js-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/animo.js/animate-animo.min.css">
+    <!-- Flag Icons-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/flag-icon-css/css/flag-icon.min.css">
+    <!-- Bootstrap Progressbar-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <!-- jQuery Steps-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/jquery.steps/demo/css/jquery.steps.css">
+    <!-- SpinKit-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/SpinKit/css/spinners/7-three-bounce.css">
+    <!-- Morris Chart-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/morris.js/morris.css">
+    <!-- DataTables-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-keytable-bs/css/keyTable.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-select-bs/css/select.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-fixedcolumns-bs/css/fixedColumns.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/plugins/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css">
+    <!-- Primary Style-->
+    <link rel="stylesheet" type="text/css" href="~/build/css/first-layout.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Toastr-->
+    <link rel="stylesheet" type="text/css" href="~/plugins/toastr/toastr.min.css">
+    @*@Scripts.Render("~/bundles/modernizr")*@
+
+    <!-- jQuery-->
+    <script type="text/javascript" src="~/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script type="text/javascript" src="~/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Malihu Scrollbar-->
+    <script type="text/javascript" src="~/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Animo.js-->
+    <script type="text/javascript" src="~/plugins/animo.js/animo.min.js"></script>
+    <!-- Bootstrap Progressbar-->
+    <script type="text/javascript" src="~/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="~/plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <!-- jQuery Steps-->
+    <script type="text/javascript" src="~/plugins/jquery.steps/build/jquery.steps.min.js"></script>
+    <!-- jQuery BlockUI-->
+    <script type="text/javascript" src="~/plugins/blockUI/jquery.blockUI.js"></script>
+    <!-- Flot Charts-->
+    @*<script type="text/javascript" src="~/plugins/flot/jquery.flot.js"></script>
+        <script type="text/javascript" src="~/plugins/flot/jquery.flot.resize.js"></script>
+        <script type="text/javascript" src="~/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>*@
+    <!-- Morris Chart-->
+    <script type="text/javascript" src="~/plugins/raphael/raphael-min.js"></script>
+    <script type="text/javascript" src="~/plugins/morris.js/morris.min.js"></script>
+
+    <!-- Toastr-->
+    <script type="text/javascript" src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Custom JS-->
+    <script type="text/javascript" src="~/build/js/first-layout/app.js"></script>
+    <script type="text/javascript" src="~/build/js/first-layout/demo.js"></script>
+    <script type="text/javascript" src="~/build/js/page-content/forms/forms-wizard.js"></script>
+    <script type="text/javascript" src="~/plugins/PACE/pace.min.js"></script>
+    <script type="text/javascript">
+        function loadPrint() {
+            window.print();
+            setTimeout(function () { window.close(); }, 100);
+            //window.open('', '_self', ''); window.close();
+        }
+    </script>
+</head>
+<body onload="loadPrint();">
+    <div class="page-content container-fluid" id="printable">
+        <div class="widget">
+            <div class="widget-body" style="font-size:smaller;">
+                    <h4>Escopo da Cobertura da Garantia</h4>
+                    <p>- Tela/LCD e quaisquer outras peças consertadas ou substituídas que funcionem mal, ou não funcionem como planejadas ou projetadas (sem imagem, sem sensor de toque, aro solto)</p>
+                    <p>- A garantia é limitada às peças e/ou serviço (s) que tenham sido prestados, salvo nas situações descritas abaixo.</p>
+                    <h4>Após o conserto do aparelho pelo Mr Jack, a garantia não cobre:</h4>
+                    <p>- Mau uso subsequente que faz a moldura (carcaça) empenar ou quebrar.</p>
+                    <p>- Danos provocados por água;</p>
+                    <p>- Quedas subsequentes, acidentais ou propositais;</p>
+                    <p>- Adulteração de hardware interno;</p>
+                    <p>- Danos resultantes de tentativas de conserto do cliente (não executadas por um técnico do Mr Jack);</p>
+                    <p>- Problemas de software não relacionados com o conserto;</p>
+                    <p>- Dispositivos desbloqueados com métodos não autorizados pelo fabricante (como jailbreak ou Root);</p>
+                    <p>- Novos danos não relacionados com o conserto original;</p>
+                    <p>- Qualquer perda de dados que ocorra como resultado do conserto. Os clientes são orientados a fazer o backup de todos os dados antes da tentativa de conserto.</p>
+                    <p>- Displays: cabo flex danificado por má perícia na instalação, arranhões, danos no vidro, danos ao aro, danos causados por água, danos no LCD</p>
+                    <p>Nossa garantia também não cobre o resultado de um conserto no evento de determinadas condições preexistentes ao conserto, inclusive:</p>
+                    <p>- Existência de problemas de fabricação já conhecidos e/ou problemas de performance relacionados com o dispositivo independentemente do conserto, conforme observado antes do conserto.</p>
+                    <p>- Existência de dano à moldura (carcaça) do dispositivo, conforme observado antes do conserto.</p>
+                    <p>- Danos provocados por água.</p>
+                    <p>- Dispositivos desbloqueados com métodos não aceitos pelo fabricante (como jailbreak ou Root).</p>
+                    <p>- Adulteração do hardware interno: dependendo das condições, um dano interno pode impossibilitar um conserto. O técnico do Mr Jack será capaz de explicar em maiores detalhes após diagnosticar o seu dispositivo específico. Em caso de dúvida, recomendamos que você não tente consertar por conta própria, pois um dano pode resultar na impossibilidade de conserto do seu dispositivo.</p>
+                    <p>- Um botão “home” que não funcione/leitor Biométrico danificado ou cortado.
+                    </p>
+                <p>Data: @DateTime.Now.ToLongDateString()<br />
+                Hora: @DateTime.Now.ToString("h:mm:ss tt")<br /></p>
+                @if(Model.OS.defeitoAnterior)
+                {
+                    <p>Atenção:</p>
+                    <text>@Model.OS.comentarios</text>
+                }
+                <p style="align-content:center;align-self:center;align-items:center;"></p>
+                <p>Declaro que foram entregues as mercadorias acima discriminadas em perfeito estado ao cliente</p>
+                <p style="align-content:center;align-self:center;align-items:center;">Ass: _____________________________________</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

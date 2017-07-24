@@ -1,0 +1,147 @@
+﻿@model IEnumerable<MrJack.Dominio.OrdemServico>
+@using System.Security.Claims;
+@{
+    ViewBag.Title = "Listar";
+    var identity = (ClaimsIdentity)User.Identity;
+    var role = identity.Claims.Where(c => c.Type == ClaimTypes.Role)
+                   .Select(c => c.Value).SingleOrDefault();
+}
+@using MrJack.Dominio;
+
+<h2>Ordens de Serviço</h2>
+
+<p>
+    @if (role != "Cliente")
+    {
+        @Html.DropDownList("ddlStatus",
+   EnumHelper.GetSelectList(typeof(StatusOS)),
+   "Selecione um filtro",
+   new { @class = "form-control", @onchange = "redirect(this.value)" })
+    }
+</p>
+
+<script type="text/javascript">
+       function redirect(dropDownValue) {
+           window.location.href = '@Url.Action("ListarPorStatus", "OrdemServico")' + '?status=' + dropDownValue;
+       }
+</script>
+
+<table id="example-2" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Serviço
+            </th>
+            <th>
+                Data de Inclusão
+            </th>
+            <th>
+                Data de Modificação
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    #@Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.Display("Defeito")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dataInclusao)
+                </td>
+                <td>
+                    @if (item.dataModificacao.ToString() != "01/01/0001 00:00:00")
+                    {
+                        @Html.DisplayFor(modelItem => item.dataModificacao)
+                    }
+                </td>
+                <td>
+                    R$ @Html.DisplayFor(modelItem => item.ValorTotal)
+                </td>
+                <td>
+                    @if (item.status == MrJack.Dominio.StatusOS.Aguardando)
+                    {
+                        <span class="label label-warning">Aguardando</span>
+                    }
+
+                    @if (item.status == MrJack.Dominio.StatusOS.Cancelada)
+                    {
+                        <span class="label label-danger">Cancelada</span>
+                    }
+
+                    @if (item.status == MrJack.Dominio.StatusOS.Entregue)
+                    {
+                        <span class="label label-success">Aguardando</span>
+                    }
+                    @if (item.status == MrJack.Dominio.StatusOS.Finalizado)
+                    {
+                        <span class="label label-info">Finalizada</span>
+                    }
+                </td>
+                <td>
+                    <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-outline btn-primary" onclick="location.href='@Url.Action("Visualizar", "OrdemServico", new { id = item.Id })'"><i class="ti-eye"></i></button>
+                        @if (role != "Cliente")
+                        {
+                            <button type="button" class="btn btn-outline btn-success" onclick="location.href='@Url.Action("EditarOS", "Cliente", new { idOS = item.Id })'"><i class="ti-pencil"></i></button>
+                        }
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <!-- DataTables-->
+    <script type="text/javascript" src="~/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/plugins/jszip/dist/jszip.min.js"></script>
+    <script type="text/javascript" src="~/plugins/pdfmake/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/plugins/pdfmake/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <!-- DataTables-->
+    <script type="text/javascript" src="~/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/plugins/jszip/dist/jszip.min.js"></script>
+    <script type="text/javascript" src="~/plugins/pdfmake/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/plugins/pdfmake/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
+    <script type="text/javascript" src="~/plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+
+    <script type="text/javascript" src="~/build/js/page-content/tables/data-tables.js"></script>
+}

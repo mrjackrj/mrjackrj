@@ -14,7 +14,8 @@ class ProjectConfiguration extends sfProjectConfiguration
     	'sfDoctrinePlugin',
     	'sfDoctrineGuardPlugin',
       'sfFormExtraPlugin',
-      'sfThumbnailPlugin'
+      'sfThumbnailPlugin',
+      'sfPhpExcelPlugin'
     ));
   }
 }

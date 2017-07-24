@@ -5,7 +5,7 @@
     <?php include_metas() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include_title() ?>
-    <link rel="shortcut icon" href="assets/img/ico/favicon.png">
+    <link rel="shortcut icon" href="/assets/img/ico/favicon.png" />
     <?php include_stylesheets() ?>
     <!--[if lte IE 7]><?php echo stylesheet_tag('/simpla/css/ie.css') ?><![endif]-->
     <?php include_javascripts() ?>

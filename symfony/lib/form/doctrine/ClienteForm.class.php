@@ -12,6 +12,7 @@ class ClienteForm extends BaseClienteForm
 {
   public function configure()
   {
+    unset($this['user_id']);
     $this->disableLocalCSRFProtection();
     $this->validatorSchema['email'] = new sfValidatorAnd(array(
 		  $this->validatorSchema['email'],

@@ -21,20 +21,26 @@ generator:
         recorrente:      { label: É Recorrente }
         testado:         { label: Aparelho Testado? }
         imei:            { label: IMEI }
+        mensagem_impressao: { label: Mensagem na impressão }
+        com_senha: { label: Senha? }
       list:
         title:          Ordens de Serviço
         display:        [id, created_at, valor, status]
         sort:           ~
         batch_actions:  []
         object_actions:
+          show: { label: Ver }
           _edit: { label: Editar }
         actions:
-          _new: { label: "Novo"}
+          _new: { label: "Nova"}
       filter:
           display: [modelo_defeito_id, cliente_id, pagamento, pago, troca, recorrente, testado, imei, data_retirada, status]
       form:
-        display: [modelo_defeito_id, cliente_id, comentario, pagamento, valor, preco_dinheiro, preco_cartao, pago, troca, recorrente, testado, imei, senha, garantia, data_retirada, status]
+        display: [modelo_defeito_id, cliente_id, comentario, pagamento, valor, preco_dinheiro, preco_cartao, pago, troca, recorrente, testado, imei, com_senha, senha, garantia, data_retirada, status, mensagem_impressao]
       edit:
         title: Editando OS
+        actions:
+          _save: { label: Salvar }
+          _list: { label: Voltar }
       new:
         title: Adicionar OS

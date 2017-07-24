@@ -16,6 +16,18 @@ ordem_servico:
     column:               id
     with_wildcard_routes: true
 
+ordem_servico_print:
+  url:        /ordem_servico/:id/closeOS
+  class:      sfDoctrineRoute
+  options:    { model: OrdemServico, type: object }
+  param:      { module: ordem_servico, action: closeOS }
+
+ordem_servico_print:
+  url:        /ordem_servico/:id/print
+  class:      sfDoctrineRoute
+  options:    { model: OrdemServico, type: object }
+  param:      { module: ordem_servico, action: print }
+
 cliente:
   class: sfDoctrineRouteCollection
   options:

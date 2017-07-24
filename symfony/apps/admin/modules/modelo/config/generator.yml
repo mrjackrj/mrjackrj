@@ -16,6 +16,7 @@ generator:
       actions: ~
       fields:
         created_at:      { label: Data de Criação }
+        mostrar_site:    { label: Mostrar no site/OS? }
       list:
         title:          Lista de Modelos
         display:        [nome, Marca, _defeitos, created_at]

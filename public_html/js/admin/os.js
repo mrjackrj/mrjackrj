@@ -1,4 +1,16 @@
 jQuery(function($) {
+	$('#ordem_servico_garantia').val('30');
+	if($('#ordem_servico_senha').val() != '') {
+		$('#ordem_servico_senha').show();
+	}
+	console.log('asfasdf');
+	$('#ordem_servico_com_senha').change(function() {
+	 	if($(this).is(":checked")) {
+	 		$('#ordem_servico_senha').show();
+	 	} else {
+			$('#ordem_servico_senha').val('').hide()
+		}
+	 });
   $('#ordem_servico_pagamento_Dinheiro').click(function() {
       $('#ordem_servico_valor').val($('#ordem_servico_preco_dinheiro').val());
   });
@@ -10,6 +22,7 @@ jQuery(function($) {
   });
   loadPrices( $('#ordem_servico_modelo_defeito_id').val() );
   function loadPrices(value) {
+		console.log(value);
     $.ajax({
       url: '/admin.php/modelo_defeito/'+value+'/edit',
       type: 'GET',

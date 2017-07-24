@@ -40,9 +40,11 @@
                 </a>
 
                 <ul class="dropdown-menu">
-                  <li><a href="/" target="_blank"><i class="fa fa-external-link"></i> Abrir Site</a></li>
-                  <li><a href="<?php echo url_for('@sf_guard_user_edit?id='.$sf_user->getGuardUser()->getId()) ?>"><i class="fa fa-gear"></i> Perfil</a></li>
-                  <li class="divider"></li>
+                  <?php if(!$sf_user->getGuardUser()->hasGroup('Clientes')): ?>
+                    <li><a href="/" target="_blank"><i class="fa fa-external-link"></i> Abrir Site</a></li>
+                    <li><a href="<?php echo url_for('@sf_guard_user_edit?id='.$sf_user->getGuardUser()->getId()) ?>"><i class="fa fa-gear"></i> Perfil</a></li>
+                    <li class="divider"></li>
+                  <?php endif ?>
                   <li><a href="<?php echo url_for('@sf_guard_signout') ?>"><i class="icon-off"></i> Logout</a></li>
                 </ul>
               </li>
@@ -62,7 +64,9 @@
               <div class="account-details">
               </div> <!-- /account-details -->
             </div> <!-- /account-container -->
+
             <ul id="main-nav" class="nav nav-tabs nav-stacked">
+              <?php if(!$sf_user->getGuardUser()->hasGroup('Clientes')): ?>
                 <li class="<?php if ( $sf_context->getModuleName() == 'main' ) echo 'active' ?>"><a href="<?php echo url_for('@homepage') ?>"><i class="fa fa-home"></i> Home</a></li>
                 <?php if($sf_user->getGuardUser()->hasGroup('Administradores')): ?>
                   <li class="<?php if ( $sf_context->getModuleName() == 'marca' ) echo 'active' ?>"><a href="<?php echo url_for('@marca') ?>"><i class="fa fa-tag"></i> Marcas</a></li>
@@ -76,6 +80,7 @@
                   <li class="<?php if ( $sf_context->getModuleName() == 'sf_guard_user' ) echo 'active' ?>"><a href="<?php echo url_for('@sf_guard_user') ?>"><i class="fa fa-user"></i> Usuários</a></li>
                   <li class="<?php if ( $sf_context->getModuleName() == 'sfGuardGroup' ) echo 'active' ?>"><a href="<?php echo url_for('@sf_guard_group') ?>"><i class="fa fa-group"></i> Grupos de Acesso</a></li>
                 <?php endif ?>
+              <?php endif ?>
             </ul>
             <!--
             <hr />
