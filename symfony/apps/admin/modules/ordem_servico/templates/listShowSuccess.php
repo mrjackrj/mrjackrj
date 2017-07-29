@@ -19,7 +19,6 @@
         type: 'GET',
         dataType: 'json'
       }).done(function(data) {
-        console.log('Passei aqui!!'+data);
         $('td.osStatus').text('Entregue');
         alert('Status da OS alterado para Entregue com sucesso!!');
         window.open('<?php echo url_for('@ordem_servico_print?type=garantia&id='.$ordem_servico->getId()) ?>','_blank');

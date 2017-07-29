@@ -21,8 +21,6 @@ generator:
         title:          Lista de Clientes
         display:        [nome, email, cpf, _ordem_servico, created_at]
         sort:           ~
-        actions:
-          exportar: {action: exportExcel, label: Excel}
         batch_actions:  []
         object_actions:
           _edit: { label: Editar }

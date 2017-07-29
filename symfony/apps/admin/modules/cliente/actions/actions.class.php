@@ -28,6 +28,7 @@ class clienteActions extends autoClienteActions
 
   public function executeEdit(sfWebRequest $request)
   {
+    $html = $this->getController()->getPresentationFor('cliente', 'index');
     $this->cliente = $this->getRoute()->getObject();
     $this->form = $this->configuration->getForm($this->cliente);
 
@@ -105,79 +106,29 @@ class clienteActions extends autoClienteActions
     }
   }
 
-  public function executeExportExcel(sfWebRequest $request)
+  public function executeExport(sfWebRequest $request)
   {
       $this->setLayout(false);
 
       $table          = Doctrine_Core::getTable('Cliente');
       $data           = array();
-      $fieldsDefault  = $this->configuration->getFieldsDefault();
 
-      $objPHPExcel = new sfPhpExcel();
+			$registers = $this->buildQuery()->execute(array(), Doctrine::HYDRATE_NONE);
 
-      foreach( array_keys($this->configuration->getValue('list.display')) as $key )
-      {
-        if($key == 'ordem_servico') {
-          continue;
-        }
-
-        if(array_key_exists($key,$fieldsDefault))
-        {
-          if(array_key_exists('label',$fieldsDefault[$key])) {
-            $data[0][] = $fieldsDefault[$key]['label'];
-          } else {
-            $data[0][] = ucfirst($key);
-          }
-        } else {
-          $data[0][] = ucfirst($key);
-        }
-      }
-
-      $registers = $this->buildQuery()->execute();
       foreach($registers as $i => $r)
       {
-          $values = array();
-
-          foreach ($this->configuration->getValue('list.display') as $name => $field)
-          {
-            if($name == 'ordem_servico') {
-              continue;
-            }
-
-            if($field->isPartial()) {
-              $data[$i+1][] = $this->getPartial($name,array('usuario' => $r, 'textonly' => true));
-            } else {
-              try {
-                $retorno = call_user_func(array($r, 'get'.  ucfirst($name)));
-                $data[$i+1][] = sprintf('%s',$retorno);
-                //$data[$i+1][] = call_user_func(array($r, 'get'.  ucfirst($name)));
-              }catch(Exception $e) {
-                $data[$i+1][] = 'bug';
-              }
-            }
-          }
+          $data[] = array(
+            "nome"=>$r[1],
+            "email"=>$r[2],
+            "cpf"=>$r[3],
+            "telefone"=>$r[4],
+            "endereco"=>$r[4],
+            "cidade"=>$r[6],
+            "estado"=>$r[7],
+            "observacoes"=>$r[8],
+            "created_at"=>$r[10]);
       }
 
-      $objPHPExcel->setActiveSheetIndex(0);
-      $objPHPExcel->getActiveSheet()->fromArray($data);
-
-      foreach(range('a','z') as $i) {
-        $objPHPExcel->getActiveSheet()->getColumnDimension(strtoupper($i))->setAutoSize(true);
-      }
-
-      $this->getResponse()->clearHttpHeaders();
-      $this->getResponse()->setHttpHeader('Content-Type', 'application/vnd.ms-excel');
-      $this->getResponse()->setHttpHeader('Content-Disposition', 'attachment; filename=clientes'.time().'.xlsx');
-      $this->getResponse()->setHttpHeader('Content-Transfer-Encoding', 'binary');
-
-      $pFilename = tempnam('./', 'phpxl');
-
-      $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-      $objWriter->save($pFilename);
-
-      $this->getResponse()->setContent(file_get_contents($pFilename));
-      unlink($pFilename);
-
-      return sfView::NONE;
+      return $this->renderText(json_encode($data));
   }
 }

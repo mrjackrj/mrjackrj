@@ -16,6 +16,7 @@ generator:
       actions: ~
       fields:
         created_at:      { label: Data de Criação }
+        updated_at:      { label: Data de Modificação }
         pago:            { label: Pgto Efetuado }
         troca:           { label: Troca de Peça }
         recorrente:      { label: É Recorrente }
@@ -25,7 +26,7 @@ generator:
         com_senha: { label: Senha? }
       list:
         title:          Ordens de Serviço
-        display:        [id, created_at, valor, status]
+        display:        [id, created_at, updated_at, valor, status]
         sort:           ~
         batch_actions:  []
         object_actions:

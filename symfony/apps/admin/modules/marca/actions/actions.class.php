@@ -22,4 +22,21 @@ class marcaActions extends autoMarcaActions
 
 		return parent::execute($request);
   }
+
+  public function executeExport(sfWebRequest $request)
+  {
+      $this->setLayout(false);
+
+      $table          = Doctrine_Core::getTable('Marca');
+      $data           = array();
+
+			$registers = $this->buildQuery()->execute(array(), Doctrine::HYDRATE_NONE);
+
+      foreach($registers as $i => $r)
+      {
+          $data[] = array("descricao"=>$r[1], "created_at"=>$r[3]);
+      }
+
+      return $this->renderText(json_encode($data));
+  }
 }

@@ -2,6 +2,36 @@
   [?php if (!$pager->getNbResults()): ?]
   <div class="alert alert-info"><i class="fa fa-exclamation-circle"></i> [?php echo __('No result', array(), 'sf_admin') ?]</div>
   [?php else: ?]
+  <?php if (count($this->configuration->getValue('list.display'))): ?>
+    <div class="export_area">
+      <p class="columns" style="display:none;">
+          <?php $fields = array(); ?>
+          <?php foreach ($this->configuration->getValue('list.display') as $name => $field): ?>
+            <?php if(!$field->isPartial()): ?>
+              <?php $fields[] = array("data"=>strtolower($name)) ?>
+            <?php endif; ?>
+          <?php endforeach; ?>
+          <?php echo json_encode($fields) ?>
+      </p>
+      <table cellspacing="0" class="export_table" style="display:none;">
+        <thead>
+          <tr>
+            <?php foreach ($this->configuration->getValue('list.display') as $name => $field): ?>
+              [?php slot('sf_admin.current_header') ?]
+                <?php if(!$field->isPartial()): ?>
+                  <th class="sf_admin_<?php echo strtolower($field->getType()) ?> sf_admin_list_th_<?php echo $name ?>" style="position:relative">
+                    [?php echo __('<?php echo $field->getConfig('label', '', true) ?>', array(), '<?php echo $this->getI18nCatalogue() ?>') ?]
+                  </th>
+                <?php endif; ?>
+              [?php end_slot(); ?]
+              <?php echo $this->addCredentialCondition("[?php include_slot('sf_admin.current_header') ?]", $field->getConfig()) ?>
+            <?php endforeach; ?>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  <?php endif; ?>
   <table cellspacing="0" class="table table-striped table-bordered">
       <thead>
         <tr>

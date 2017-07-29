@@ -18,8 +18,14 @@ class OrdemServicoForm extends BaseOrdemServicoForm
     ), array('style'=>'list-style:none;display:inline;padding:5px;'));
 
     $this->widgetSchema['cliente_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
-      'url' => '/admin.php/autocomplete',
+      'url' => '/admin.php/autocomplete?type=cliente',
       'model' => 'Cliente',
+      'value_callback' => 'findOneById'
+    ));
+
+    $this->widgetSchema['modelo_defeito_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
+      'url' => '/admin_dev.php/autocomplete?type=modelo_defeito',
+      'model' => 'ModeloDefeito',
       'value_callback' => 'findOneById'
     ));
 

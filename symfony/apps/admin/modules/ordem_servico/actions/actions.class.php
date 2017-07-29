@@ -15,11 +15,19 @@ class ordem_servicoActions extends autoOrdem_servicoActions
 {
   public function executeAutocomplete(sfWebRequest $request)
   {
-    $result = ClienteTable::getInstance()
-      ->findClienteByName($request['q'])
-      ->toKeyValueArray('id', 'nome');
+    if($request->getParameter("type") == 'cliente') {
+      $result = ClienteTable::getInstance()
+        ->findClienteByName($request['q'])
+        ->toKeyValueArray('id', 'nome');
 
-    return $this->renderText(json_encode($result));
+      return $this->renderText(json_encode($result));
+    } else {
+      $result = ModeloDefeitoTable::getInstance()
+        ->findModeloDefeitoByName($request['q'])
+        ->toKeyValueArray('id', 'nome');
+
+      return $this->renderText(json_encode($result));
+    }
   }
 
   public function executeIndex(sfWebRequest $request)
@@ -162,5 +170,22 @@ class ordem_servicoActions extends autoOrdem_servicoActions
     $ordem_servico->save();
 
     return $this->renderText(json_encode('{status: OK}'));
+  }
+
+  public function executeExport(sfWebRequest $request)
+  {
+      $this->setLayout(false);
+
+      $table          = Doctrine_Core::getTable('OrdemServico');
+      $data           = array();
+
+			$registers = $this->buildQuery()->execute(array(), Doctrine::HYDRATE_NONE);
+
+      foreach($registers as $i => $r)
+      {
+          $data[] = array("id"=>$r[0], "created_at"=>$r[18], "updated_at"=>$r[19], "valor"=>$r[14], "status"=>$r[16]);
+      }
+
+      return $this->renderText(json_encode($data));
   }
 }

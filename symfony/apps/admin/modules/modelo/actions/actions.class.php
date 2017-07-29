@@ -22,7 +22,7 @@ class modeloActions extends autoModeloActions
 
 		return parent::execute($request);
   }
-  
+
   public function executeDefeitos(sfWebRequest $request)
 	{
     $this->getUser()->setAttribute('modelo_defeito.page', 1, 'admin_module');
@@ -31,4 +31,21 @@ class modeloActions extends autoModeloActions
 
     $this->redirect($this->generateUrl('modelo_defeito'));
 	}
+
+  public function executeExport(sfWebRequest $request)
+  {
+      $this->setLayout(false);
+
+      $table          = Doctrine_Core::getTable('Modelo');
+      $data           = array();
+
+			$registers = $this->buildQuery()->execute(array(), Doctrine::HYDRATE_NONE);
+
+      foreach($registers as $i => $r)
+      {
+          $data[] = array("nome"=>$r[1], "marca"=>$r[2], "created_at"=>$r[5]);
+      }
+
+      return $this->renderText(json_encode($data));
+  }
 }
