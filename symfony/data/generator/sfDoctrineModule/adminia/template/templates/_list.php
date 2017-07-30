@@ -13,7 +13,7 @@
           <?php endforeach; ?>
           <?php echo json_encode($fields) ?>
       </p>
-      <table cellspacing="0" class="export_table" style="display:none;">
+      <table cellspacing="0" width="100%" class="display export_table table table-striped table-bordered" style="display:none;">
         <thead>
           <tr>
             <?php foreach ($this->configuration->getValue('list.display') as $name => $field): ?>

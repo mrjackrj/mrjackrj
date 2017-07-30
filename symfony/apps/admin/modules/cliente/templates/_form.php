@@ -39,7 +39,7 @@
     <div class="tabbable">
       <div class="tab-content">
         <div class="tab-pane active" id="1">
-          <?php echo form_tag_for($form, '@cliente',array('class'=>'')) ?>
+          <?php echo form_tag_for($form, '@cliente',array('class'=>'form-horizontal')) ?>
             <?php echo $form->renderHiddenFields(false) ?>
             <?php if ($form->hasGlobalErrors()): ?>
               <?php echo $form->renderGlobalErrors() ?>
@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="tab-pane" id="3">
-            <?php echo form_tag_for($osForm, '@ordem_servico',array('class'=>'')) ?>
+            <?php echo form_tag_for($osForm, '@ordem_servico',array('class'=>'form-horizontal')) ?>
               <input type="hidden" value="<?php echo url_for('cliente_edit', $cliente) ?>?osAdded=true" name="returnAction" />
               <?php echo $osForm->renderHiddenFields(false) ?>
               <?php if ($osForm->hasGlobalErrors()): ?>

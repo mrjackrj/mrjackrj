@@ -1,5 +1,5 @@
 indexSuccess:
   javascripts:    [admin/jquery.dataTables.min.js,admin/dataTables.buttons.min.js,admin/buttons.flash.min.js,admin/jszip.min.js,admin/pdfmake.min.js,admin/vfs_fonts.js,admin/buttons.html5.min.js,admin/buttons.print.min.js,admin/export_results.js]
-  stylesheets:    [admin/jquery.dataTables.min.css,admin/buttons.dataTables.min.css]
+  stylesheets:    [admin/jquery.dataTables.min.css,admin/buttons.dataTables.min.css,admin/dataTables.bootstrap.min.css]
 editSuccess:
   javascripts:    [admin/os.js]

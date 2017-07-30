@@ -24,7 +24,7 @@ class OrdemServicoForm extends BaseOrdemServicoForm
     ));
 
     $this->widgetSchema['modelo_defeito_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
-      'url' => '/admin_dev.php/autocomplete?type=modelo_defeito',
+      'url' => '/admin.php/autocomplete?type=modelo_defeito',
       'model' => 'ModeloDefeito',
       'value_callback' => 'findOneById'
     ));

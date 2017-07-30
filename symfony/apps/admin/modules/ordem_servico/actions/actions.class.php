@@ -153,8 +153,10 @@ class ordem_servicoActions extends autoOrdem_servicoActions
 
     if($request->getParameter('type') == 'garantia') {
       $this->setTemplate('printGarantia');
-    } else {
+    } else if($request->getParameter('type') == 'os') {
       $this->setTemplate('printOS');
+    } else {
+      $this->setTemplate('printRecibo');
     }
 
     $this->ordem_servico = $this->getRoute()->getObject();

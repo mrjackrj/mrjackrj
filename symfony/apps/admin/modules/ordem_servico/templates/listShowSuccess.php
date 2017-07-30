@@ -87,11 +87,14 @@
                       Comentários: <?php echo $ordem_servico->getComentario() ?>
                   </p>
               </div>
-              <div class="col-md-2 col-md-offset-2">
+              <div class="col-md-2">
                   <button type="button" class="btn btn-raised btn-primary" onclick="window.open('<?php echo url_for('@ordem_servico_print?type=os&id='.$ordem_servico->getId()) ?>','_blank');"><i class="ti-printer"></i> Imprimir OS</button>
               </div>
               <div class="col-md-2">
                   <button type="button" class="btn btn-raised btn-primary" onclick="printGarantia()"><i class="ti-printer"></i> Imprimir Garantia</button>
+              </div>
+              <div class="col-md-2">
+                  <button type="button" class="btn btn-raised btn-primary" onclick="window.open('<?php echo url_for('@ordem_servico_print?type=recibo&id='.$ordem_servico->getId()) ?>','_blank');"><i class="ti-printer"></i> Imprimir Recibo</button>
               </div>
           </div>
 

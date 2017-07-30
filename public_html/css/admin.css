@@ -4,7 +4,3 @@
 .double_list_select, .double_list_select-selected {
 	width: 300px !important;
 }
-
-.sf_admin_form_field_pagamento, .sf_admin_form_field_valor {
-  display: inline-block;
-}

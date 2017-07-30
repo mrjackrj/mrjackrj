@@ -16,8 +16,8 @@ jQuery(function($) {
   $('#ordem_servico_pagamento_Parcelado').click(function() {
       $('#ordem_servico_valor').val($('#ordem_servico_preco_cartao').val());
   });
-  $('#ordem_servico_modelo_defeito_id').change(function() {
-    loadPrices( $('#ordem_servico_modelo_defeito_id').val() );
+	$('#ordem_servico_modelo_defeito_id').on('inputchange',function(){
+     loadPrices( $('#ordem_servico_modelo_defeito_id').val() );
   });
 
   loadPrices( $('#ordem_servico_modelo_defeito_id').val() );

@@ -26,7 +26,7 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="./">
-            <img class="retina" src="/assets/img/logo.jpg" alt=""/>
+            <?php echo image_tag('logo.png') ?>
           </a>
           <div class="nav-collapse">
             <ul class="nav pull-right">

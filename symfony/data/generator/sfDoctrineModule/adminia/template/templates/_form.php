@@ -3,9 +3,9 @@
 
 <div class="widget">
   [?php $formconfig = $configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit'); ?]
-  <div class="widget-header"> 
+  <div class="widget-header">
     <h3>[?php echo $title ?]</h3>
-    
+
     [?php if(count($formconfig) > 1): ?]
     <ul class="nav nav-tabs pull-right" style="margin-right:5px;margin-top:5px;">
       [?php $i = 1; foreach ($formconfig as $fieldset => $fields): ?]
@@ -17,12 +17,12 @@
       [?php $i++; endforeach; ?]
     </ul>
     [?php endif; ?]
-    
+
   </div>
-  
+
   <div class="widget-content">
 
-  [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>',array('class'=>'')) ?]
+  [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>',array('class'=>'form-horizontal')) ?]
     [?php echo $form->renderHiddenFields(false) ?]
 
     [?php if ($form->hasGlobalErrors()): ?]

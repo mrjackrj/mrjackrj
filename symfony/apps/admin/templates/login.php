@@ -1,24 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt_BR" lang="pt_BR">
+<html lang="en" style="height: 100%">
   <head>
-    <?php include_http_metas() ?>
-    <?php include_metas() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php include_title() ?>
-    <link rel="shortcut icon" href="/assets/img/ico/favicon.png" />
-    <?php include_stylesheets() ?>
-    <!--[if lte IE 7]><?php echo stylesheet_tag('/simpla/css/ie.css') ?><![endif]-->
-    <?php include_javascripts() ?>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Painel - MR. Jack Assistência técnica</title>
+      <link rel="shortcut icon" href="/assets/img/ico/favicon.png" />
+      <link href="/css/admin/bootstrap-login.min.css" rel="stylesheet">
+      <!-- Primary Style-->
+      <link href="/css/admin/first-layout.css" rel="stylesheet">
   </head>
-  <body id="login">
-    <div id="login-wrapper" class="png_bg">
-			<div id="login-top">
-				<h1>Área administrativa</h1>
-			</div>
-
-			<div id="login-content">
-				<?php echo $sf_content ?>
-			</div>
-		</div>
+  <body style="background-image: url(/images/16.jpg)" class="body-bg-full">
+   <div class="container page-container">
+      <div class="page-content">
+          <?php echo $sf_content ?>
+      </div>
+    </div>
   </body>
 </html>
+<!-- Localized -->

@@ -132,7 +132,7 @@
                     <div class="semOver"><b>Senha:  &nbsp;</b> </div><div class="comOver"><?php echo $ordem_servico->getSenha() ?>&nbsp;<hr /></div>
                 </td>
                 <td>
-                  <?php if ($ordem_servico->getTestado()): ?>
+                  <?php if ($ordem_servico->getComSenha()): ?>
                     <text>(X) SIM  ( ) NÃO</text>
                   <?php else: ?>
                     <text>( ) SIM  (X) NÃO</text>
