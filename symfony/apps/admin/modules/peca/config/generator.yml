@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Peca
+    theme:                 adminia
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                Peças
+    route_prefix:          peca
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    icon:                 "fa fa-puzzle-piece"
+
+    config:
+      actions: ~
+      fields:
+        created_at:      { label: Data de Criação }
+      list:
+        title:          Lista de Peças
+        display:        [nome, created_at]
+        sort:           ~
+        batch_actions:  []
+        object_actions:
+          _edit: { label: Editar }
+          _delete: { label: Excluir }
+        actions:
+          _new: { label: "Novo"}
+      filter:
+        display: [nome]
+      form:    ~
+      edit:
+        title: Editando Peça "%%nome%%"
+      new:
+        title: Adicionar Peça

@@ -23,13 +23,23 @@ class modeloActions extends autoModeloActions
 		return parent::execute($request);
   }
 
-  public function executeDefeitos(sfWebRequest $request)
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->modelo = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->modelo);
+
+    if($request->isXmlHttpRequest()) {
+      return $this->renderText(json_encode($this->modelo->asJson()));
+    }
+  }
+
+  public function executePecas(sfWebRequest $request)
 	{
-    $this->getUser()->setAttribute('modelo_defeito.page', 1, 'admin_module');
-    $this->getUser()->setAttribute('modelo_defeito.filters', array('modelo_id' => $this->getRequestParameter('id')), 'admin_module');
+    $this->getUser()->setAttribute('modelo_peca.page', 1, 'admin_module');
+    $this->getUser()->setAttribute('modelo_peca.filters', array('modelo_id' => $this->getRequestParameter('id')), 'admin_module');
     $this->getUser()->setAttribute('modelo', Doctrine::getTable('Modelo')->find(array($this->getRequestParameter('id'))));
 
-    $this->redirect($this->generateUrl('modelo_defeito'));
+    $this->redirect($this->generateUrl('modelo_peca'));
 	}
 
   public function executeExport(sfWebRequest $request)

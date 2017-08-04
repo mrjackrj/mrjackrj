@@ -34,7 +34,7 @@ class ModeloForm extends BaseModeloForm
     ));
 
     $this->validatorSchema['imagem_delete'] = new sfValidatorPass();
-    $this->widgetSchema['defeitos_list']->setLabel('Defeitos');
+    $this->widgetSchema['pecas_list']->setLabel('Peças');
   }
 
   protected function doSave($con = null)

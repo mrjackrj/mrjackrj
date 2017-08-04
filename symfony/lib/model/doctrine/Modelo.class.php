@@ -12,6 +12,17 @@
  */
 class Modelo extends BaseModelo
 {
+  public function asJson() {
+    $modeloPecas = ModeloPecaTable::getInstance()->findByModeloId($this->getId());
+    $pecas = array();
+
+    foreach ($modeloPecas as $key => $modeloPeca) {
+        $pecas[] = $modeloPeca->asJson();
+    }
+
+    return '{"id":'.$this->getId().',"nome":"'.$this->getNome().'","pecas":['.implode(",", $pecas).']}';
+  }
+
   public function __toString() {
 		return $this->getNome();
 	}

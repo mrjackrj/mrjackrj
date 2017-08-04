@@ -23,9 +23,9 @@ class OrdemServicoForm extends BaseOrdemServicoForm
       'value_callback' => 'findOneById'
     ));
 
-    $this->widgetSchema['modelo_defeito_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
-      'url' => '/admin.php/autocomplete?type=modelo_defeito',
-      'model' => 'ModeloDefeito',
+    $this->widgetSchema['modelo_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
+      'url' => '/admin.php/autocomplete?type=modelo',
+      'model' => 'Modelo',
       'value_callback' => 'findOneById'
     ));
 
@@ -39,5 +39,24 @@ class OrdemServicoForm extends BaseOrdemServicoForm
 
     $this->validatorSchema['preco_dinheiro'] = new sfValidatorPass();
     $this->validatorSchema['preco_cartao'] = new sfValidatorPass();
+
+    if(!$this->isNew()) {
+      $this->widgetSchema['pecas_list'] = new sfWidgetFormDoctrineChoiceWithParams(array(
+        'multiple' => true, 'model' => 'Peca', 'table_method' => array('method' => 'getPecasByModelo', 'parameters' => array($this->getObject()->getModeloId()))
+      ));
+
+      $preco_dinheiro = 0;
+      $preco_cartao = 0;
+      $osPecas = OrdemServicoPecaTable::getInstance()->findByOrdemServicoId($this->getObject()->getId());
+
+      foreach ($osPecas as $key => $osPeca) {
+        $modelo_peca    = ModeloPecaTable::getInstance()->findOneByModeloIdAndPecaId($this->getObject()->getModeloId(), $osPeca->getPeca()->getId());
+        $preco_dinheiro += preg_replace("/\,/", ".", preg_replace("/\./", "", $modelo_peca->getPrecoDinheiro()));
+        $preco_cartao   += preg_replace("/\,/", ".", preg_replace("/\./", "", $modelo_peca->getPrecoCartao()));
+      }
+
+      $this->widgetSchema['preco_dinheiro'] = new sfWidgetFormInputHidden(array(), array('value'=>$preco_dinheiro));
+      $this->widgetSchema['preco_cartao'] = new sfWidgetFormInputHidden(array(), array('value'=>$preco_cartao));
+    }
   }
 }

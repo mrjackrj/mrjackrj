@@ -51,13 +51,13 @@ Marca:
     descricao:       { type: string(100), notnull: true }
     imagem:          { type: string(250) }
 
-Defeito:
+Peca:
   actAs:
     Timestampable: ~
   columns:
     nome:            { type: string(250), notnull: true }
   relations:
-    Modelos:        { onDelete: CASCADE, class: Modelo, local: defeito_id, foreign: modelo_id, refClass: ModeloDefeito }
+    Modelos:        { onDelete: CASCADE, class: Modelo, local: peca_id, foreign: modelo_id, refClass: ModeloPeca }
 
 Modelo:
   actAs:
@@ -69,32 +69,30 @@ Modelo:
     mostrar_site:    { type: boolean, default: 1 }
   relations:
     Marca:           { local: marca_id, foreign: id }
-    Defeitos:        { onDelete: CASCADE, class: Defeito, local: modelo_id, foreign: defeito_id, refClass: ModeloDefeito }
+    Pecas:           { onDelete: CASCADE, class: Peca, local: modelo_id, foreign: peca_id, refClass: ModeloPeca }
 
-ModeloDefeito:
+ModeloPeca:
   actAs:
     Timestampable: ~
   columns:
     modelo_id:       { type: integer, notnull: true }
-    defeito_id:      { type: integer, notnull: true }
+    peca_id:         { type: integer, notnull: true }
     preco_dinheiro:  { type: string(20) }
     preco_cartao:    { type: string(20) }
   relations:
     Modelo:        { class: Modelo, local: modelo_id }
-    Defeito:        { class: Defeito, local: defeito_id }
+    Peca:        { class: Peca, local: peca_id }
 
 OrdemServico:
   actAs:
     Timestampable: ~
   columns:
-    modelo_defeito_id: { type: integer, notnull: true }
+    modelo_id:       { type: integer, notnull: true }
     cliente_id:        { type: integer, notnull: true }
     usuario_cadastro_id: { type: integer }
+    defeito:      { type: string(250) }
     comentario:      { type: string }
     pagamento:       { type: enum, values: [Dinheiro, Parcelado] }
-    pago:            { type: boolean }
-    troca:           { type: boolean }
-    recorrente:      { type: boolean }
     testado:         { type: boolean }
     imei:            { type: string(50) }
     com_senha:       { type: boolean }
@@ -105,9 +103,20 @@ OrdemServico:
     status:          { type: enum, values: [Aguardando, Finalizado, Cancelada, Entregue]}
     data_retirada:   { type: timestamp }
   relations:
-    ModeloDefeito:   { class: ModeloDefeito, local: modelo_defeito_id }
+    Modelo:        { class: Modelo, local: modelo_id }
+    Pecas:           { onDelete: CASCADE, class: Peca, local: ordem_servico_id, foreign: peca_id, refClass: OrdemServicoPeca }
     Cliente:         { class: Cliente, local: cliente_id }
     UsuarioCadastro: { class: sfGuardUser, local: usuario_cadastro_id }
+
+OrdemServicoPeca:
+  actAs:
+    Timestampable: ~
+  columns:
+    ordem_servico_id:    { type: integer, notnull: true }
+    peca_id:             { type: integer, notnull: true }
+  relations:
+    OrdemServico:        { class: OrdemServico, local: ordem_servico_id }
+    Peca:                { class: Peca, local: peca_id }
 
 sfGuardUser:
   actAs: [Timestampable]

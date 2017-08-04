@@ -47,13 +47,13 @@ class mainActions extends sfActions
     }
   }
 
-  public function executeModeloDefeito(sfWebRequest $request)
+  public function executeModeloPeca(sfWebRequest $request)
   {
     $modeloId   = $request->getParameter('modelo_id');
-    $defeitoId  = $request->getParameter('defeito_id');
-    $this->modelo_defeito = ModeloDefeitoTable::getInstance()->findOneByModeloIdAndDefeitoId($modeloId, $defeitoId);
+    $pecaId     = $request->getParameter('peca_id');
+    $this->modelo_peca = ModeloPecaTable::getInstance()->findOneByModeloIdAndPecaId($modeloId, $pecaId);
 
-    return $this->renderJson(array('code' => self::SUCCESS, 'error' => false, 'data' => $this->modelo_defeito->asJson()));
+    return $this->renderJson(array('code' => self::SUCCESS, 'error' => false, 'data' => $this->modelo_peca->asJson()));
   }
 
   public function renderJson(array $data)

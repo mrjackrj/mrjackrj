@@ -21,17 +21,53 @@ Cliente:
     observacoes: null
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
-Defeito:
-  Defeito_1:
-    nome: 'Tela Quebrada'
+Peca:
+  frontal:
+    nome: 'Frontal'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
-  Defeito_2:
-    nome: 'Teclado não funciona'
+  bateria:
+    nome: 'Bateria'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
-  Defeito_3:
-    nome: 'Touch com defeito'
+  conector_carga:
+    nome: 'Conector de Carga'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  camera_traseira:
+    nome: 'Câmera Traseira'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  camera_frontal:
+    nome: 'Câmera Frontal'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  alto_falanto:
+    nome: 'Alto Falante'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  microfone:
+    nome: 'Microfone'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  botao_ligar:
+    nome: 'Botão de Ligar'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  botao_volume:
+    nome: 'Botão de Volume'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  vibracao:
+    nome: 'Vibração'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  atualizar:
+    nome: 'Atualizar'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  desbloquear:
+    nome: 'Desbloquear'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
 Filial:
@@ -130,80 +166,80 @@ Modelo:
   Modelo_1:
     nome: 'Iphone 7'
     imagem: 6e5bf8b7ed1e330a5870e5d6d6b498f818c5485e.jpg
-    Marca: Marca_1
+    Marca: apple
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 04:24:18'
   Modelo_2:
     nome: 'S7 G930'
     imagem: 8efe1d4285f2aafc60ed105566d4dea87321b6b3.jpg
-    Marca: Marca_2
+    Marca: samsung
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 04:22:34'
   Modelo_3:
     nome: 'Iphone 6S'
     imagem: 91d1ce72e8da2ca17a62c63ea3ea3f34e404c7e2.jpg
-    Marca: Marca_1
+    Marca: apple
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:22:01'
   Modelo_4:
     nome: 'Iphone 6S Plus'
     imagem: 3de09870b1959889b9890277d15dcf283c661e30.jpg
-    Marca: Marca_1
+    Marca: apple
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:22:21'
-ModeloDefeito:
-  ModeloDefeito_1:
+ModeloPeca:
+  ModeloPeca_1:
     modelo_id: 1
-    defeito_id: 1
+    peca_id: 1
     preco_dinheiro: '400'
     preco_cartao: '450'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
-  ModeloDefeito_2:
+  ModeloPeca_2:
     modelo_id: 1
-    defeito_id: 2
+    peca_id: 2
     preco_dinheiro: '300'
     preco_cartao: '350'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
-  ModeloDefeito_3:
+  ModeloPeca_3:
     modelo_id: 2
-    defeito_id: 3
+    peca_id: 3
     preco_dinheiro: '360'
     preco_cartao: '400'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
-  ModeloDefeito_4:
+  ModeloPeca_4:
     modelo_id: 3
-    defeito_id: 2
+    peca_id: 2
     preco_dinheiro: '380'
     preco_cartao: '400'
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:30:19'
-  ModeloDefeito_5:
+  ModeloPeca_5:
     modelo_id: 3
-    defeito_id: 3
+    peca_id: 3
     preco_dinheiro: '500'
     preco_cartao: '550'
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:30:35'
-  ModeloDefeito_6:
+  ModeloPeca_6:
     modelo_id: 4
-    defeito_id: 1
+    peca_id: 1
     preco_dinheiro: '600'
     preco_cartao: '700'
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:30:45'
-  ModeloDefeito_7:
+  ModeloPeca_7:
     modelo_id: 4
-    defeito_id: 2
+    peca_id: 2
     preco_dinheiro: '600'
     preco_cartao: '650'
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:30:56'
-  ModeloDefeito_8:
+  ModeloPeca_8:
     modelo_id: 4
-    defeito_id: 3
+    peca_id: 3
     preco_dinheiro: '700'
     preco_cartao: '750'
     created_at: '2017-06-29 03:22:21'

@@ -75,18 +75,16 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Aparelho - Defeito</th>
-                  <th class="center">Pagamento</th>
+                  <th>Aparelho</th>
+                  <th>Defeito</th>
                   <th class="right">Status</th>
                   <th class="right">Total</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="left"><?php echo $ordem_servico->getModeloDefeito() ?></td>
-                  <td class="center">
-                    <input type="checkbox" <?php echo $ordem_servico->getPago() ? "checked" : "" ?> disabled />
-                  </td>
+                  <td class="left"><?php echo $ordem_servico->getModelo() ?></td>
+                  <td class="left"><?php echo $ordem_servico->getDefeito() ?></td>
                   <td class="right osStatus"><?php echo $ordem_servico->getStatus() ?></td>
                   <td class="right">R$ <?php echo $ordem_servico->getValor() ?></td>
                 </tr>

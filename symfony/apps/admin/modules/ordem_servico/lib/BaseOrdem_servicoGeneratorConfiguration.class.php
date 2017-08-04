@@ -37,7 +37,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
 
   public function getListActions()
   {
-    return array(  '_new' =>   array(    'label' => 'Novo',  ),);
+    return array(  '_new' =>   array(    'label' => 'Nova',  ),);
   }
 
   public function getListBatchActions()
@@ -47,7 +47,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
 
   public function getListParams()
   {
-    return '%%id%% - %%created_at%% - %%valor%% - %%status%%';
+    return '%%id%% - %%created_at%% - %%updated_at%% - %%valor%% - %%status%%';
   }
 
   public function getListLayout()
@@ -72,12 +72,12 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
 
   public function getFilterDisplay()
   {
-    return array(  0 => 'modelo_defeito_id',  1 => 'cliente_id',  2 => 'pagamento',  3 => 'pago',  4 => 'troca',  5 => 'recorrente',  6 => 'testado',  7 => 'imei',  8 => 'data_retirada',  9 => 'status',);
+    return array(  0 => 'modelo_id',  1 => 'cliente_id',  2 => 'pagamento',  3 => 'testado',  4 => 'imei',  5 => 'data_retirada',  6 => 'status',);
   }
 
   public function getFormDisplay()
   {
-    return array(  0 => 'modelo_defeito_id',  1 => 'cliente_id',  2 => 'comentario',  3 => 'pagamento',  4 => 'valor',  5 => 'preco_dinheiro',  6 => 'preco_cartao',  7 => 'pago',  8 => 'troca',  9 => 'recorrente',  10 => 'testado',  11 => 'imei',  12 => 'senha',  13 => 'garantia',  14 => 'data_retirada',  15 => 'status',);
+    return array(  0 => 'modelo_id',  1 => 'pecas_list',  2 => 'defeito',  3 => 'cliente_id',  4 => 'comentario',  5 => 'pagamento',  6 => 'valor',  7 => 'preco_dinheiro',  8 => 'preco_cartao',  9 => 'testado',  10 => 'imei',  11 => 'com_senha',  12 => 'senha',  13 => 'garantia',  14 => 'data_retirada',  15 => 'status',  16 => 'mensagem_impressao',);
   }
 
   public function getEditDisplay()
@@ -92,30 +92,31 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
 
   public function getListDisplay()
   {
-    return array(  0 => 'id',  1 => 'created_at',  2 => 'valor',  3 => 'status',);
+    return array(  0 => 'id',  1 => 'created_at',  2 => 'updated_at',  3 => 'valor',  4 => 'status',);
   }
 
   public function getFieldsDefault()
   {
     return array(
       'id' => array(  'is_link' => true,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
-      'modelo_defeito_id' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'ForeignKey',),
+      'modelo_id' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'ForeignKey',),
       'cliente_id' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'ForeignKey',),
       'usuario_cadastro_id' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'ForeignKey',),
+      'defeito' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'comentario' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'pagamento' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Enum',),
-      'pago' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Boolean',  'label' => 'Pgto Efetuado',),
-      'troca' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Boolean',  'label' => 'Troca de Peça',),
-      'recorrente' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Boolean',  'label' => 'É Recorrente',),
       'testado' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Boolean',  'label' => 'Aparelho Testado?',),
       'imei' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',  'label' => 'IMEI',),
+      'com_senha' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Boolean',  'label' => 'Senha?',),
       'senha' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'garantia' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'valor' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
+      'mensagem_impressao' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',  'label' => 'Mensagem na impressão',),
       'status' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Enum',),
       'data_retirada' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',),
       'created_at' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',  'label' => 'Data de Criação',),
-      'updated_at' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',),
+      'updated_at' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',  'label' => 'Data de Modificação',),
+      'pecas_list' => array(  'is_link' => false,  'is_real' => false,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',  'label' => 'Peças',),
     );
   }
 
@@ -123,23 +124,24 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
   {
     return array(
       'id' => array(),
-      'modelo_defeito_id' => array(),
+      'modelo_id' => array(),
       'cliente_id' => array(),
       'usuario_cadastro_id' => array(),
+      'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
-      'pago' => array(),
-      'troca' => array(),
-      'recorrente' => array(),
       'testado' => array(),
       'imei' => array(),
+      'com_senha' => array(),
       'senha' => array(),
       'garantia' => array(),
       'valor' => array(),
+      'mensagem_impressao' => array(),
       'status' => array(),
       'data_retirada' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'pecas_list' => array(),
     );
   }
 
@@ -147,23 +149,24 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
   {
     return array(
       'id' => array(),
-      'modelo_defeito_id' => array(),
+      'modelo_id' => array(),
       'cliente_id' => array(),
       'usuario_cadastro_id' => array(),
+      'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
-      'pago' => array(),
-      'troca' => array(),
-      'recorrente' => array(),
       'testado' => array(),
       'imei' => array(),
+      'com_senha' => array(),
       'senha' => array(),
       'garantia' => array(),
       'valor' => array(),
+      'mensagem_impressao' => array(),
       'status' => array(),
       'data_retirada' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'pecas_list' => array(),
     );
   }
 
@@ -171,23 +174,24 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
   {
     return array(
       'id' => array(),
-      'modelo_defeito_id' => array(),
+      'modelo_id' => array(),
       'cliente_id' => array(),
       'usuario_cadastro_id' => array(),
+      'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
-      'pago' => array(),
-      'troca' => array(),
-      'recorrente' => array(),
       'testado' => array(),
       'imei' => array(),
+      'com_senha' => array(),
       'senha' => array(),
       'garantia' => array(),
       'valor' => array(),
+      'mensagem_impressao' => array(),
       'status' => array(),
       'data_retirada' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'pecas_list' => array(),
     );
   }
 
@@ -195,23 +199,24 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
   {
     return array(
       'id' => array(),
-      'modelo_defeito_id' => array(),
+      'modelo_id' => array(),
       'cliente_id' => array(),
       'usuario_cadastro_id' => array(),
+      'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
-      'pago' => array(),
-      'troca' => array(),
-      'recorrente' => array(),
       'testado' => array(),
       'imei' => array(),
+      'com_senha' => array(),
       'senha' => array(),
       'garantia' => array(),
       'valor' => array(),
+      'mensagem_impressao' => array(),
       'status' => array(),
       'data_retirada' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'pecas_list' => array(),
     );
   }
 
@@ -219,23 +224,24 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
   {
     return array(
       'id' => array(),
-      'modelo_defeito_id' => array(),
+      'modelo_id' => array(),
       'cliente_id' => array(),
       'usuario_cadastro_id' => array(),
+      'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
-      'pago' => array(),
-      'troca' => array(),
-      'recorrente' => array(),
       'testado' => array(),
       'imei' => array(),
+      'com_senha' => array(),
       'senha' => array(),
       'garantia' => array(),
       'valor' => array(),
+      'mensagem_impressao' => array(),
       'status' => array(),
       'data_retirada' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'pecas_list' => array(),
     );
   }
 

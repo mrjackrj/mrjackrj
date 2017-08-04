@@ -19,7 +19,7 @@ generator:
         mostrar_site:    { label: Mostrar no site/OS? }
       list:
         title:          Lista de Modelos
-        display:        [nome, Marca, _defeitos, created_at]
+        display:        [nome, Marca, _pecas, created_at]
         sort:           ~
         batch_actions:  []
         object_actions:

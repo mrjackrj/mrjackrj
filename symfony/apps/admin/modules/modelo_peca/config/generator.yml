@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ModeloPeca
+    theme:                 adminia
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                Peças
+    route_prefix:          modelo_peca
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        peca:   { label: Peça }
+        preco_cartao: { label: Parcelado }
+        preco_dinheiro: { label: Dinheiro }
+      list:
+        title:          Peças do
+        display:        [peca, preco_cartao, preco_dinheiro]
+        sort:           ~
+        batch_actions: {}
+        object_actions:
+          _edit: { label: Editar }
+          _delete: { label: Excluir }
+        actions:
+          _new: { label: "Novo"}
+      filter:
+        display: [modelo_id, peca_id]
+      form:    ~
+      edit:
+        title: Editando
+      new:     ~

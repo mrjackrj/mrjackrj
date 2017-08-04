@@ -35,11 +35,12 @@ class clienteActions extends autoClienteActions
     $this->osConfiguration = new ordem_servicoGeneratorConfiguration();
     $this->osHelper = new ordem_servicoGeneratorHelper();
 
+    $this->ordens_servico = OrdemServicoTable::getInstance()->findByClienteId($this->cliente->getId());
     $this->ordem_servico = new OrdemServico();
     $this->ordem_servico->setCliente($this->cliente);
     $this->ordem_servico->setUsuarioCadastro($this->getUser()->getGuardUser());
 
-    $this->osForm = $this->osConfiguration->getForm($this->ordem_servico);
+    $this->osForm = new OrdemServicoForm($this->ordem_servico);
     $this->osPager = $this->getOSPager();
     $this->osSort = null;
   }

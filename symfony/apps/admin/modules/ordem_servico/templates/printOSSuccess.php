@@ -98,7 +98,7 @@
             </tr>
             <tr>
                 <td>
-                    <div class="semOver"><b>Modelo:  &nbsp;</b> </div><div class="comOver"><?php echo $ordem_servico->getModeloDefeito()->getModelo() ?> &nbsp;<hr /></div>
+                    <div class="semOver"><b>Modelo:  &nbsp;</b> </div><div class="comOver"><?php echo $ordem_servico->getModelo() ?> &nbsp;<hr /></div>
                 </td>
                 <td>
                     <div class="semOver"><b>IMEI:  &nbsp;</b> </div><div class="comOver"><?php echo $ordem_servico->getImei() ?>&nbsp;<hr /></div>
@@ -106,22 +106,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <div class="semOver"><b>Troca de Peça:  &nbsp;</b> </div><div class="comOver">&nbsp;<hr /></div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="semOver"><b>Defeito:  &nbsp;</b> </div><div class="comOver"><?php echo $ordem_servico->getModeloDefeito()->getDefeito() ?> &nbsp;<hr /></div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <b>Troca de peças:  &nbsp;</b>
-                    <?php if ($ordem_servico->getTroca()): ?>
-                      <text>(X) SIM  ( ) NÃO</text>
-                    <?php else: ?>
-                      <text>( ) SIM  (X) NÃO</text>
-                    <?php endif; ?>
+                    <div class="semOver"><b>Defeito:  &nbsp;</b> </div><div class="comOver"><?php echo $ordem_servico->getDefeito() ?> &nbsp;<hr /></div>
                 </td>
             </tr>
             <tr>

@@ -33,8 +33,8 @@
                   <h2><a href="#"><?php echo $aparelho->getNome() ?></a></h2>
                   <select name="dropdownmain">
                     <option value="qualservico">Qual o Serviço</option>
-                    <?php foreach ($aparelho->getDefeitos() as $defeito): ?>
-                      <option value="<?php echo $defeito->getId() ?>" rel="<?php echo $aparelho->getId() ?>"><?php echo $defeito->getNome() ?></option>
+                    <?php foreach ($aparelho->getPecas() as $peca): ?>
+                      <option value="<?php echo $peca->getId() ?>" rel="<?php echo $aparelho->getId() ?>"><?php echo $peca->getNome() ?></option>
                     <?php endforeach; ?>
                   </select>
                   <input name="qualservico" class="preco_dinheiro" value="Pg Dinheiro:" disabled>
@@ -69,9 +69,9 @@
 <script>
     $('select[name="dropdownmain"]').change(function () {
       var parent  = $(this).parent('.portfolio-title')
-      var defeito = $('option:selected', this).val();
+      var peca = $('option:selected', this).val();
 
-      if(defeito === 'qualservico') {
+      if(peca === 'qualservico') {
         $('.preco_dinheiro', parent).val('Pg Dinheiro:');
         $('.preco_cartao', parent).val('Parcelado:');
 
@@ -80,13 +80,13 @@
 
       var modelo  = $('option:selected', this).attr('rel');
       $.ajax({
-        url: '/modelo_defeito/modelo/'+modelo+'/defeito/'+defeito,
+        url: '/modelo_peca/modelo/'+modelo+'/peca/'+peca,
         type: 'GET',
         dataType: 'json'
       }).done(function(data) {
-        var modelo_defeito = jQuery.parseJSON(data.data);
-        $('.preco_dinheiro', parent).val('Pg Dinheiro: R$ '+modelo_defeito["preco_dinheiro"]);
-        $('.preco_cartao', parent).val('Parcelado: R$ '+modelo_defeito["preco_cartao"]);
+        var modelo_peca = jQuery.parseJSON(data.data);
+        $('.preco_dinheiro', parent).val('Pg Dinheiro: R$ '+modelo_peca["preco_dinheiro"]);
+        $('.preco_cartao', parent).val('Parcelado: R$ '+modelo_peca["preco_cartao"]);
       });
     });
 </script>

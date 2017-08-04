@@ -1,5 +1,7 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
+<?php use_stylesheets_for_form($osForm) ?>
+<?php use_javascripts_for_form($osForm) ?>
 <script type="text/javascript">
   jQuery(function($) {
     $('.sf_admin_action_save_and_add').hide();
@@ -9,6 +11,8 @@
     if(osAdded !== "") {
       $('#tab_2').trigger('click');
     }
+
+    $('#tab_3').removeClass('active');
   });
 </script>
 
@@ -52,21 +56,42 @@
         </div>
         <?php if (!$form->isNew()): ?>
           <div class="tab-pane" id="2">
-            <p>
-              Exibindo registros <b><?php echo $osPager->getFirstIndice() ?>&nbsp;-&nbsp;<?php echo $osPager->getLastIndice() ?></b> de <b><?php echo $osPager->getNbResults() ?></b> no total
-            </p>
-            <?php include_partial('ordem_servico/list', array('pager' => $osPager, 'sort' => $osSort, 'helper' => $osHelper)) ?>
-            <?php include_partial('ordem_servico/list_batch_actions', array('helper' => $osHelper)) ?>
-            <ol>
-              <?php include_partial('ordem_servico/list_actions', array('helper' => $osHelper)) ?>
-            </ol>
+            <table cellspacing="0" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th class="sf_admin_text sf_admin_list_th_id" style="position:relative">Id</th>
+                  <th class="sf_admin_date sf_admin_list_th_created_at" style="position:relative">Data de Criação</th>
+                  <th class="sf_admin_date sf_admin_list_th_updated_at" style="position:relative">Data de Modificação</th>
+                  <th class="sf_admin_text sf_admin_list_th_valor" style="position:relative">Valor</th>
+                  <th class="sf_admin_enum sf_admin_list_th_status" style="position:relative">Status</th>
+                  <th id="sf_admin_list_th_actions"><?php echo __('Actions', array(), 'sf_admin') ?></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($ordens_servico as $i => $ordem_servico): $odd = fmod(++$i, 2) ? 'odd' : 'even' ?>
+                  <tr class="sf_admin_row <?php echo $odd ?>">
+                    <td class="sf_admin_text sf_admin_list_td_id">1</td>
+                    <td class="sf_admin_date sf_admin_list_td_created_at"><?php echo $ordem_servico->getCreatedAt() ?></td>
+                    <td class="sf_admin_date sf_admin_list_td_updated_at"><?php echo $ordem_servico->getUpdatedAt() ?></td>
+                    <td class="sf_admin_text sf_admin_list_td_valor"><?php echo $ordem_servico->getValor() ?></td>
+                    <td class="sf_admin_enum sf_admin_list_td_status"><?php echo $ordem_servico->getStatus() ?></td>
+                    <td>
+                      <ul class="unstyled inline">
+                        <li><?php echo link_to(__('Ver', array(), 'messages'), 'ordem_servico/ListShow?id='.$ordem_servico->getId(), array()) ?></li>
+                        <li class="sf_admin_action_edit"><a href="<?php echo url_for('ordem_servico_edit', $ordem_servico) ?>" class="ui-icon-pencil ui-icon">Editar</a></li>
+                      </ul>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
             <div class="form-actions">
               <ul class="unstyled inline">
                 <?php echo $helper->linkToList(array(  'params' =>   array(  ),  'class_suffix' => 'list',  'label' => 'Back to list',)) ?>
               </ul>
             </div>
           </div>
-          <div class="tab-pane" id="3">
+          <div class="tab-pane active" id="3">
             <?php echo form_tag_for($osForm, '@ordem_servico',array('class'=>'form-horizontal')) ?>
               <input type="hidden" value="<?php echo url_for('cliente_edit', $cliente) ?>?osAdded=true" name="returnAction" />
               <?php echo $osForm->renderHiddenFields(false) ?>
@@ -80,7 +105,12 @@
                   <?php $i++; endforeach; ?>
                 </div>
               </div>
-              <?php include_partial('ordem_servico/form_actions', array('ordem_servico' => $ordem_servico, 'form' => $osForm, 'configuration' => $osConfiguration, 'helper' => $osHelper)) ?>
+              <div class="form-actions">
+                <ul class="unstyled inline">
+                  <?php echo $helper->linkToSave($form->getObject(), array(  'label' => 'Salvar',  'params' =>   array(  ),  'class_suffix' => 'save',)) ?>
+                  <?php echo $helper->linkToList(array(  'label' => 'Voltar',  'params' =>   array(  ),  'class_suffix' => 'list',)) ?>
+                </ul>
+              </div>
             </form>
           </div>
         <?php endif; ?>

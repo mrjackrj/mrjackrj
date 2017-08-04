@@ -57,7 +57,7 @@
                     </p>
                 <p>Data: <?php echo format_date($ordem_servico->getUpdatedAt(), "dd/MM/yyyy") ?><br />
                 Hora: <?php echo format_date($ordem_servico->getUpdatedAt(), "hh:mm:ss") ?><br /></p>
-                <?php if ($ordem_servico->getRecorrente()): ?>
+                <?php if ($ordem_servico->getComentario()): ?>
                   <p>Atenção:</p>
                   <text><?php echo $ordem_servico->getComentario() ?></text>
                 <?php endif; ?>

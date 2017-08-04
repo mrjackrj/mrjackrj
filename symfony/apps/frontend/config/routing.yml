@@ -30,9 +30,9 @@ aparelhos:
   url:   /aparelhos/:marca
   param: { module: aparelhos, action: index }
 
-modelo_defeito:
-  url:  /modelo_defeito/modelo/:modelo_id/defeito/:defeito_id
-  param: { module: main, action: modeloDefeito }
+modelo_peca:
+  url:  /modelo_peca/modelo/:modelo_id/peca/:peca_id
+  param: { module: main, action: modeloPeca }
 
 # generic rules
 # please, remove them by adding more specific rules

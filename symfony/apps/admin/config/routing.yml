@@ -37,21 +37,21 @@ cliente:
     column:               id
     with_wildcard_routes: true
 
-modelo_defeito:
+modelo_peca:
   class: sfDoctrineRouteCollection
   options:
-    model:                ModeloDefeito
-    module:               modelo_defeito
-    prefix_path:          /modelo_defeito
+    model:                ModeloPeca
+    module:               modelo_peca
+    prefix_path:          /modelo_peca
     column:               id
     with_wildcard_routes: true
 
-defeito:
+peca:
   class: sfDoctrineRouteCollection
   options:
-    model:                Defeito
-    module:               defeito
-    prefix_path:          /defeito
+    model:                Peca
+    module:               peca
+    prefix_path:          /peca
     column:               id
     with_wildcard_routes: true
 

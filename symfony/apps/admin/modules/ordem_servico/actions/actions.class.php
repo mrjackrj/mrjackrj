@@ -22,8 +22,8 @@ class ordem_servicoActions extends autoOrdem_servicoActions
 
       return $this->renderText(json_encode($result));
     } else {
-      $result = ModeloDefeitoTable::getInstance()
-        ->findModeloDefeitoByName($request['q'])
+      $result = ModeloTable::getInstance()
+        ->findModeloByName($request['q'])
         ->toKeyValueArray('id', 'nome');
 
       return $this->renderText(json_encode($result));
