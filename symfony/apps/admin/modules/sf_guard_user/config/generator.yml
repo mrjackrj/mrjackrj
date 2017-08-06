@@ -36,7 +36,7 @@ generator:
         display:        [username, email_address]
       form:
         class:          sfGuardUserAdminForm
-        display:        [first_name, email_address, username, password, password_again, groups_list, is_active]
+        display:        [first_name, email_address, username, password, password_again, filial_id, groups_list, is_active]
       edit:
         title:          Editar administrador "%%username%%"
       new:
