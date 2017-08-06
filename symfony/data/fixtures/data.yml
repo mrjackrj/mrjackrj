@@ -8,6 +8,7 @@ Cliente:
     cidade: null
     estado: null
     observacoes: null
+    User: sfGuardUser_4
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
   Cliente_2:
@@ -19,55 +20,7 @@ Cliente:
     cidade: null
     estado: null
     observacoes: null
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-Peca:
-  frontal:
-    nome: 'Frontal'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  bateria:
-    nome: 'Bateria'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  conector_carga:
-    nome: 'Conector de Carga'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  camera_traseira:
-    nome: 'Câmera Traseira'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  camera_frontal:
-    nome: 'Câmera Frontal'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  alto_falanto:
-    nome: 'Alto Falante'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  microfone:
-    nome: 'Microfone'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  botao_ligar:
-    nome: 'Botão de Ligar'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  botao_volume:
-    nome: 'Botão de Volume'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  vibracao:
-    nome: 'Vibração'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  atualizar:
-    nome: 'Atualizar'
-    created_at: '2017-06-28 03:28:37'
-    updated_at: '2017-06-28 03:28:37'
-  desbloquear:
-    nome: 'Desbloquear'
+    User: sfGuardUser_5
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
 Filial:
@@ -90,75 +43,81 @@ Filial:
     created_at: '0000-00-00 00:00:00'
     updated_at: '0000-00-00 00:00:00'
 Marca:
-  apple:
+  Marca_1:
     descricao: Apple
     imagem: 8716e114aebc167dec6fe95c166922b438bff0a1.jpg
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: apple
-  samsung:
+  Marca_2:
     descricao: Samsung
     imagem: c5772cc2bd9d1254173306afeadb687cf80b4053.jpg
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: samsung
-  sony:
+  Marca_3:
     descricao: Sony
     imagem: 18680073bd6c77814cd288fd6d5d6ab83d116bda.jpg
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: sony
-  lg:
+  Marca_4:
     descricao: LG
     imagem: 06c1d34c68495725d294896c01aa6697d389e1e5.jpg
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: lg
-  asus:
+  Marca_5:
     descricao: ASUS
     imagem: 48d8e0b9bebbee7d70074223b81ed639e7b7c849.jpg
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: asus
-  motorola:
+  Marca_6:
     descricao: Motorola
     imagem: db149829014df88c9d31409cbc25fbc7aaf8c2ab.jpg
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: motorola
-  nokia:
+  Marca_7:
     descricao: NOKIA
     imagem: 56e47d94cea817d75d808693feb6ff53d4572ebb.jpg
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: nokia
-  black_berry:
+  Marca_8:
     descricao: BlackBerry
+    imagem: null
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: black_berry
-  lenovo:
+  Marca_9:
     descricao: Lenovo
+    imagem: null
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: lenovo
-  cce:
+  Marca_10:
     descricao: CCE
+    imagem: null
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: cce
-  philco:
+  Marca_11:
     descricao: Philco
+    imagem: null
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: philco
-  philips:
+  Marca_12:
     descricao: Philips
+    imagem: null
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: philips
-  acer:
+  Marca_13:
     descricao: Acer
+    imagem: null
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
     slug: acer
@@ -166,166 +125,328 @@ Modelo:
   Modelo_1:
     nome: 'Iphone 7'
     imagem: 6e5bf8b7ed1e330a5870e5d6d6b498f818c5485e.jpg
-    Marca: apple
+    Marca: Marca_1
+    mostrar_site: true
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 04:24:18'
   Modelo_2:
     nome: 'S7 G930'
     imagem: 8efe1d4285f2aafc60ed105566d4dea87321b6b3.jpg
-    Marca: samsung
+    Marca: Marca_2
+    mostrar_site: true
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 04:22:34'
   Modelo_3:
     nome: 'Iphone 6S'
     imagem: 91d1ce72e8da2ca17a62c63ea3ea3f34e404c7e2.jpg
-    Marca: apple
+    Marca: Marca_1
+    mostrar_site: false
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:22:01'
   Modelo_4:
     nome: 'Iphone 6S Plus'
     imagem: 3de09870b1959889b9890277d15dcf283c661e30.jpg
-    Marca: apple
+    Marca: Marca_1
+    mostrar_site: true
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:22:21'
 ModeloPeca:
   ModeloPeca_1:
-    modelo_id: 1
-    peca_id: 1
+    Modelo: Modelo_1
+    Peca: Peca_1
     preco_dinheiro: '400'
     preco_cartao: '450'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
   ModeloPeca_2:
-    modelo_id: 1
-    peca_id: 2
+    Modelo: Modelo_1
+    Peca: Peca_2
     preco_dinheiro: '300'
     preco_cartao: '350'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
   ModeloPeca_3:
-    modelo_id: 2
-    peca_id: 3
+    Modelo: Modelo_2
+    Peca: Peca_3
     preco_dinheiro: '360'
     preco_cartao: '400'
     created_at: '2017-06-28 03:28:37'
     updated_at: '2017-06-28 03:28:37'
   ModeloPeca_4:
-    modelo_id: 3
-    peca_id: 2
+    Modelo: Modelo_3
+    Peca: Peca_2
     preco_dinheiro: '380'
     preco_cartao: '400'
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:30:19'
   ModeloPeca_5:
-    modelo_id: 3
-    peca_id: 3
+    Modelo: Modelo_3
+    Peca: Peca_3
     preco_dinheiro: '500'
     preco_cartao: '550'
     created_at: '2017-06-29 03:22:01'
     updated_at: '2017-06-29 03:30:35'
   ModeloPeca_6:
-    modelo_id: 4
-    peca_id: 1
+    Modelo: Modelo_4
+    Peca: Peca_1
     preco_dinheiro: '600'
     preco_cartao: '700'
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:30:45'
   ModeloPeca_7:
-    modelo_id: 4
-    peca_id: 2
+    Modelo: Modelo_4
+    Peca: Peca_2
     preco_dinheiro: '600'
     preco_cartao: '650'
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:30:56'
   ModeloPeca_8:
-    modelo_id: 4
-    peca_id: 3
+    Modelo: Modelo_4
+    Peca: Peca_3
     preco_dinheiro: '700'
     preco_cartao: '750'
     created_at: '2017-06-29 03:22:21'
     updated_at: '2017-06-29 03:31:07'
+  ModeloPeca_9:
+    Modelo: Modelo_1
+    Peca: Peca_4
+    preco_dinheiro: '320'
+    preco_cartao: '370'
+    created_at: '2017-08-01 02:19:32'
+    updated_at: '2017-08-01 03:35:51'
+  ModeloPeca_10:
+    Modelo: Modelo_1
+    Peca: Peca_5
+    preco_dinheiro: '280'
+    preco_cartao: '300'
+    created_at: '2017-08-01 02:19:32'
+    updated_at: '2017-08-01 03:36:02'
+OrdemServico:
+  OrdemServico_1:
+    Modelo: Modelo_1
+    Cliente: Cliente_1
+    UsuarioCadastro: sfGuardUser_1
+    defeito: 'Tela quebrada, Bateria não carrega'
+    comentario: 'Teste de defeito de tela'
+    pagamento: Dinheiro
+    observacoes: null
+    testado: false
+    imei: ''
+    com_senha: true
+    senha: '1234'
+    garantia: '30'
+    valor: '700'
+    mensagem_impressao: ''
+    status: Aguardando
+    data_retirada: null
+    created_at: '2017-07-25 14:01:20'
+    updated_at: '2017-08-01 02:59:43'
+  OrdemServico_2:
+    Modelo: Modelo_1
+    Cliente: Cliente_2
+    UsuarioCadastro: sfGuardUser_1
+    defeito: 'Câmera queimada'
+    comentario: 'Câmera traseira queimada'
+    pagamento: Parcelado
+    observacoes: ''
+    testado: true
+    imei: ''
+    com_senha: false
+    senha: ''
+    garantia: '30'
+    valor: '380'
+    mensagem_impressao: ''
+    status: Aguardando
+    data_retirada: null
+    created_at: '2017-08-06 01:12:08'
+    updated_at: '2017-08-06 03:44:41'
+OrdemServicoListaChecagem:
+  OrdemServicoListaChecagem_1:
+    OrdemServico: OrdemServico_2
+    tela_display: true
+    touch_screen: false
+    teclas: true
+    sensor_proximidade: false
+    bluetooth: false
+    wifi: false
+    ligacoes: true
+    alto_falante: false
+    audio_auricular: true
+    microfone: false
+    camera: false
+    conector_carregador: false
+    conector_fone: false
+    conector_sd: false
+    created_at: '2017-08-06 03:30:38'
+    updated_at: '2017-08-06 03:44:41'
+OrdemServicoPeca:
+  OrdemServicoPeca_1:
+    OrdemServico: OrdemServico_1
+    Peca: Peca_1
+    created_at: '2017-07-25 14:01:20'
+    updated_at: '2017-07-25 14:01:20'
+  OrdemServicoPeca_2:
+    OrdemServico: OrdemServico_1
+    Peca: Peca_2
+    created_at: '2017-07-25 14:01:20'
+    updated_at: '2017-07-25 14:01:20'
+Peca:
+  Peca_1:
+    nome: Frontal
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_2:
+    nome: Bateria
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_3:
+    nome: 'Conector de Carga'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_4:
+    nome: 'Câmera Traseira'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_5:
+    nome: 'Câmera Frontal'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_6:
+    nome: 'Alto Falante'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_7:
+    nome: Microfone
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_8:
+    nome: 'Botão de Ligar'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_9:
+    nome: 'Botão de Volume'
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_10:
+    nome: Vibração
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_11:
+    nome: Atualizar
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+  Peca_12:
+    nome: Desbloquear
+    created_at: '2017-06-28 03:28:37'
+    updated_at: '2017-06-28 03:28:37'
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: Administradores
+    description: 'Grupo de administradores do sistema.'
+    created_at: '2017-06-29 18:21:41'
+    updated_at: '2017-06-29 18:21:41'
+  sfGuardGroup_2:
+    name: Gerentes
+    description: 'Grupo de gerentes do sistema.'
+    created_at: '2017-06-29 18:21:41'
+    updated_at: '2017-06-29 18:21:41'
+  sfGuardGroup_3:
+    name: Clientes
+    description: 'Grupo dos clientes do sistema.'
+    created_at: '2017-06-29 18:21:41'
+    updated_at: '2017-06-29 18:21:41'
 sfGuardUser:
   sfGuardUser_1:
     first_name: 'Administrador do sistema'
     last_name: null
     email_address: admin@mrjackrj.com.br
     username: admin
-    filial_id: 1
     algorithm: sha1
     salt: 6d34026802579b7cd5be406ab5acf5be
     password: afa1b938266e2b2de775d821f499174e51fc1bd0
     is_active: true
     is_super_admin: true
-    last_login: '2017-06-29 03:20:25'
+    last_login: '2017-08-06 02:58:23'
+    Filial: Filial_1
     created_at: '2017-06-01 13:13:43'
-    updated_at: '2017-06-29 03:20:25'
-  jack_salloum:
+    updated_at: '2017-08-06 02:58:23'
+  sfGuardUser_2:
     first_name: 'Jack Salloum'
     last_name: null
     email_address: jacksallom@gmail.com
     username: jack
-    filial_id: 2
     algorithm: sha1
     salt: b38b5197861128230d246c6b0086e8c0
-    password: 2a84a570480fcf86375bf4bf03a395a4ddff2667
+    password: b13fd71f7f057641ef93ab1fc0516df60c399dce
     is_active: true
     is_super_admin: true
     last_login: '2017-06-29 03:20:25'
+    Filial: Filial_2
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'
-  pamella_oliveira:
+  sfGuardUser_3:
     first_name: 'Pamella Oliveira'
     last_name: null
     email_address: pamellaoliveira@gmail.com
     username: pamella
-    filial_id: 1
     algorithm: sha1
     salt: 126a51f1426c2d83a52536d075edc91b
-    password: 2872798e8a98bdba341852d3569ac79589b4d3d1
+    password: b7ad75faca8b5646306700efd92e9e439370b30e
     is_active: true
     is_super_admin: true
     last_login: '2017-06-29 03:20:25'
+    Filial: Filial_1
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'
-sfGuardGroup:
-  sfGuardGroup_1:
-    name: Administradores
-    description: Grupo de administradores do sistema.
-    created_at: '2017-06-29 18:21:41'
-    updated_at: '2017-06-29 18:21:41'
-  sfGuardGroup_2:
-    name: Gerentes
-    description: Grupo de gerentes do sistema.
-    created_at: '2017-06-29 18:21:41'
-    updated_at: '2017-06-29 18:21:41'
-  sfGuardGroup_3:
-    name: Clientes
-    description: Grupo dos clientes do sistema.
-    created_at: '2017-06-29 18:21:41'
-    updated_at: '2017-06-29 18:21:41'
+  sfGuardUser_4:
+    first_name: 'Adilson felipe'
+    last_name: null
+    email_address: adilsonrj36@hotmail.com
+    username: null
+    algorithm: sha1
+    salt: null
+    password: null
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2017-07-30 18:39:17'
+    updated_at: '2017-07-30 18:39:17'
+  sfGuardUser_5:
+    first_name: 'Adriana Frazao'
+    last_name: null
+    email_address: adrianasfrazao@gmail.como
+    username: null
+    algorithm: sha1
+    salt: null
+    password: null
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2017-07-30 18:39:17'
+    updated_at: '2017-07-30 18:39:17'
 sfGuardUserGroup:
-  sfGuardUserGroup_1:
-    user_id: 1
-    group_id: 1
+  sfGuardUserGroup_1_1:
+    User: sfGuardUser_1
+    Group: sfGuardGroup_1
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'
-  sfGuardUserGroup_2:
-    user_id: 2
-    group_id: 1
+  sfGuardUserGroup_2_1:
+    User: sfGuardUser_2
+    Group: sfGuardGroup_1
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'
-  sfGuardUserGroup_3:
-    user_id: 3
-    group_id: 2
+  sfGuardUserGroup_3_2:
+    User: sfGuardUser_3
+    Group: sfGuardGroup_2
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'
-  sfGuardUserGroup_4:
-    user_id: 4
-    group_id: 3
+  sfGuardUserGroup_4_3:
+    User: sfGuardUser_4
+    Group: sfGuardGroup_3
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'
-  sfGuardUserGroup_5:
-    user_id: 5
-    group_id: 3
+  sfGuardUserGroup_5_3:
+    User: sfGuardUser_5
+    Group: sfGuardGroup_3
     created_at: '2017-06-01 13:13:43'
     updated_at: '2017-06-29 03:20:25'

@@ -15,7 +15,7 @@ class OrdemServicoForm extends BaseOrdemServicoForm
     $this->widgetSchema['pagamento'] = new sfWidgetFormChoice(array(
       'choices' => array('Dinheiro' => 'Dinheiro', 'Parcelado' => 'Parcelado'),
       'expanded'=>true
-    ), array('style'=>'list-style:none;display:inline;padding:5px;'));
+    ), array('style'=>'list-style:none;display:inline;padding:5px;margin:0px;'));
 
     $this->widgetSchema['cliente_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
       'url' => '/admin.php/autocomplete?type=cliente',
@@ -29,6 +29,11 @@ class OrdemServicoForm extends BaseOrdemServicoForm
       'value_callback' => 'findOneById'
     ));
 
+    $this->widgetSchema['testado'] = new sfWidgetFormChoice(array(
+      'choices' => array('1' => 'Sim', '0' => 'Não'),
+      'expanded'=>true
+    ), array('style'=>'list-style:none;display:inline;padding:5px;margin:0px;'));
+
     $this->widgetSchema['senha'] = new sfWidgetFormInputText(array(), array('style'=>'display:none'));
     $this->widgetSchema->setLabels(array(
 			'senha' => ' ',
@@ -40,7 +45,9 @@ class OrdemServicoForm extends BaseOrdemServicoForm
     $this->validatorSchema['preco_dinheiro'] = new sfValidatorPass();
     $this->validatorSchema['preco_cartao'] = new sfValidatorPass();
 
-    if(!$this->isNew()) {
+    if($this->isNew()) {
+      $this->embedForm('lista_checagem', new OrdemServicoListaChecagemForm());
+    } else {
       $this->widgetSchema['pecas_list'] = new sfWidgetFormDoctrineChoiceWithParams(array(
         'multiple' => true, 'model' => 'Peca', 'table_method' => array('method' => 'getPecasByModelo', 'parameters' => array($this->getObject()->getModeloId()))
       ));
@@ -51,12 +58,24 @@ class OrdemServicoForm extends BaseOrdemServicoForm
 
       foreach ($osPecas as $key => $osPeca) {
         $modelo_peca    = ModeloPecaTable::getInstance()->findOneByModeloIdAndPecaId($this->getObject()->getModeloId(), $osPeca->getPeca()->getId());
-        $preco_dinheiro += preg_replace("/\,/", ".", preg_replace("/\./", "", $modelo_peca->getPrecoDinheiro()));
-        $preco_cartao   += preg_replace("/\,/", ".", preg_replace("/\./", "", $modelo_peca->getPrecoCartao()));
+
+        if($modelo_peca != null) {
+          $preco_dinheiro += preg_replace("/\,/", ".", preg_replace("/\./", "", $modelo_peca->getPrecoDinheiro()));
+          $preco_cartao   += preg_replace("/\,/", ".", preg_replace("/\./", "", $modelo_peca->getPrecoCartao()));
+        }
       }
 
       $this->widgetSchema['preco_dinheiro'] = new sfWidgetFormInputHidden(array(), array('value'=>$preco_dinheiro));
       $this->widgetSchema['preco_cartao'] = new sfWidgetFormInputHidden(array(), array('value'=>$preco_cartao));
+
+      $lista_checagem = OrdemServicoListaChecagemTable::getInstance()->findOneByOrdemServicoId($this->getObject()->getId());
+
+      if($lista_checagem == null) {
+        $lista_checagem = new OrdemServicoListaChecagem();
+      }
+
+      $lista_checagem->setOrdemServicoId($this->getObject()->getId());
+      $this->embedForm('lista_checagem', new OrdemServicoListaChecagemForm($lista_checagem));
     }
   }
 }

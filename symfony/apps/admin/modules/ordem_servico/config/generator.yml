@@ -22,6 +22,7 @@ generator:
         mensagem_impressao: { label: Mensagem na impressão }
         com_senha: { label: Senha? }
         pecas_list:     { label: Peças }
+        lista_checagem: { label: Lista de Checagem }
       list:
         title:          Ordens de Serviço
         display:        [id, created_at, updated_at, valor, status]
@@ -35,7 +36,7 @@ generator:
       filter:
           display: [modelo_id, cliente_id, pagamento, testado, imei, data_retirada, status]
       form:
-        display: [modelo_id, pecas_list, defeito, cliente_id, comentario, pagamento, valor, preco_dinheiro, preco_cartao, testado, imei, com_senha, senha, garantia, data_retirada, status, mensagem_impressao]
+        display: [modelo_id, pecas_list, defeito, cliente_id, comentario, pagamento, valor, preco_dinheiro, preco_cartao, testado, observacoes, lista_checagem, imei, com_senha, senha, garantia, data_retirada, status, mensagem_impressao]
       edit:
         title: Editando OS
         actions:

@@ -19,6 +19,36 @@ jQuery(function($) {
 	$('#ordem_servico_modelo_id').on('inputchange',function(){
     loadPrices( $('#ordem_servico_modelo_id').val() );
   });
+	$('.sf_admin_form_field_observacoes, .sf_admin_form_field_lista_checagem').hide();
+	if($('#ordem_servico_testado_1').is(':checked')) {
+		showListaChecagem();
+	}
+
+	$('#ordem_servico_testado_1').click(function() {
+		showListaChecagem();
+	});
+
+	if($('#ordem_servico_testado_0').is(':checked')) {
+		showObservacoes();
+	}
+
+	$('#ordem_servico_testado_0').click(function() {
+		showObservacoes();
+	});
+
+	function showObservacoes() {
+		$('.sf_admin_form_field_lista_checagem').hide();
+		$('.sf_admin_form_field_observacoes').show();
+		$('.sf_admin_form_field_lista_checagem :checkbox').each(function() {
+			$(this).attr('checked', false);
+		});
+	}
+
+	function showListaChecagem() {
+		$('.sf_admin_form_field_observacoes').hide();
+		$('.sf_admin_form_field_lista_checagem').show();
+		$('#ordem_servico_observacoes').val('');
+	}
 
 	$("#ordem_servico_pecas_list")
 		.chosen({no_results_text: "Oops, nothing found!"})

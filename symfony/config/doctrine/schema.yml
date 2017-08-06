@@ -93,6 +93,7 @@ OrdemServico:
     defeito:      { type: string(250) }
     comentario:      { type: string }
     pagamento:       { type: enum, values: [Dinheiro, Parcelado] }
+    observacoes:     { type: string }
     testado:         { type: boolean }
     imei:            { type: string(50) }
     com_senha:       { type: boolean }
@@ -103,10 +104,32 @@ OrdemServico:
     status:          { type: enum, values: [Aguardando, Finalizado, Cancelada, Entregue]}
     data_retirada:   { type: timestamp }
   relations:
-    Modelo:        { class: Modelo, local: modelo_id }
+    Modelo:          { class: Modelo, local: modelo_id }
     Pecas:           { onDelete: CASCADE, class: Peca, local: ordem_servico_id, foreign: peca_id, refClass: OrdemServicoPeca }
     Cliente:         { class: Cliente, local: cliente_id }
     UsuarioCadastro: { class: sfGuardUser, local: usuario_cadastro_id }
+
+OrdemServicoListaChecagem:
+  actAs:
+    Timestampable: ~
+  columns:
+    ordem_servico_id:      { type: integer }
+    tela_display:          { type: boolean }
+    touch_screen:          { type: boolean }
+    teclas:                { type: boolean }
+    sensor_proximidade:    { type: boolean }
+    bluetooth:             { type: boolean }
+    wifi:                  { type: boolean }
+    ligacoes:              { type: boolean }
+    alto_falante:          { type: boolean }
+    audio_auricular:       { type: boolean }
+    microfone:             { type: boolean }
+    camera:                { type: boolean }
+    conector_carregador:   { type: boolean }
+    conector_fone:         { type: boolean }
+    conector_sd:           { type: boolean }
+  relations:
+    OrdemServico:          { class: OrdemServico, local: ordem_servico_id }
 
 OrdemServicoPeca:
   actAs:
