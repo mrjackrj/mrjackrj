@@ -22,4 +22,24 @@ class sf_guard_userActions extends autoSf_guard_userActions
 
 		return parent::execute($request);
   }
+
+  protected function buildQuery()
+  {
+    $tableMethod = $this->configuration->getTableMethod();
+    if (null === $this->filters)
+    {
+      $this->filters = $this->configuration->getFilterForm($this->getFilters());
+    }
+
+    $this->filters->setTableMethod($tableMethod);
+
+    $query = $this->filters->buildQuery($this->getFilters());
+
+    $this->addSortQuery($query);
+
+    $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
+    $query = $event->getReturnValue();
+
+    return $query->innerJoin('r.Groups g')->andWhere('g.id != ?', 3);
+  }
 }
