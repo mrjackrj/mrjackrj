@@ -126,7 +126,7 @@ class ordem_servicoActions extends autoOrdem_servicoActions
           $this->redirect($request->getParameter('returnAction'));
         }
 
-        $this->redirect(array('sf_route' => 'ordem_servico_edit', 'sf_subject' => $ordem_servico));
+        return $this->redirect('ordem_servico/index');
       }
     }
     else
