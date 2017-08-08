@@ -39,6 +39,9 @@ class OrdemServicoForm extends BaseOrdemServicoForm
 			'senha' => ' ',
 		));
     $this->widgetSchema['usuario_cadastro_id'] = new sfWidgetFormInputHidden();
+    if($this->isNew()) {
+      $this->widgetSchema['usuario_cadastro_id'] = new sfWidgetFormInputHidden(array(), array('value'=>sfContext::getInstance()->getUser()->getGuardUser()->getId()));
+    }
     $this->widgetSchema['preco_dinheiro'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['preco_cartao'] = new sfWidgetFormInputHidden();
 
@@ -78,4 +81,15 @@ class OrdemServicoForm extends BaseOrdemServicoForm
       $this->embedForm('lista_checagem', new OrdemServicoListaChecagemForm($lista_checagem));
     }
   }
+
+  protected function doSave($con = null)
+	{
+    $save = parent::doSave($con);
+
+    $embeddedObj = $this->getEmbeddedForm('lista_checagem')->getObject();
+    $embeddedObj->setOrdemServicoId($this->getObject()->getId());
+    $embeddedObj->save();
+
+    return $save;
+	}
 }
