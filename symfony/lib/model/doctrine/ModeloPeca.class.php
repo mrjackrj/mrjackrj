@@ -13,6 +13,6 @@
 class ModeloPeca extends BaseModeloPeca
 {
   public function asJson() {
-    return '{"id":'.$this->getId().',"nome":"'.$this->getPeca().'","preco_dinheiro":"'.$this->getPrecoDinheiro().'","preco_cartao":"'.$this->getPrecoCartao().'"}';
+    return '{"id":'.$this->getPeca()->getId().',"nome":"'.$this->getPeca().'","preco_dinheiro":"'.$this->getPrecoDinheiro().'","preco_cartao":"'.$this->getPrecoCartao().'"}';
   }
 }
