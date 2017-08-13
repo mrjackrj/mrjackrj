@@ -34,6 +34,7 @@ class OrdemServicoForm extends BaseOrdemServicoForm
       'expanded'=>true
     ), array('style'=>'list-style:none;display:inline;padding:5px;margin:0px;'));
 
+    $this->widgetSchema['data_retirada'] = new sfWidgetFormInputText(array(), array('class'=>'datetimepicker'));
     $this->widgetSchema['senha'] = new sfWidgetFormInputText(array(), array('style'=>'display:none'));
     $this->widgetSchema->setLabels(array(
 			'senha' => ' ',

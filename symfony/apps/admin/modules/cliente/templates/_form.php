@@ -1,7 +1,9 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
-<?php use_stylesheets_for_form($osForm) ?>
-<?php use_javascripts_for_form($osForm) ?>
+<?php if (count($osForm)): ?>
+  <?php use_stylesheets_for_form($osForm) ?>
+  <?php use_javascripts_for_form($osForm) ?>
+<?php endif; ?>
 <script type="text/javascript">
   jQuery(function($) {
     $('.sf_admin_action_save_and_add').hide();

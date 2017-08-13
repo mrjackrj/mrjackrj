@@ -36,6 +36,13 @@ jQuery(function($) {
 		showObservacoes();
 	});
 
+	$('#ordem_servico_data_retirada').datetimepicker({
+		format:'d/m/Y H:i',
+		formatTime:'H:i',
+		formatDate:'d.m.Y',
+		lang:'pt-BR'
+	});
+
 	function showObservacoes() {
 		$('.sf_admin_form_field_lista_checagem').hide();
 		$('.sf_admin_form_field_observacoes').show();

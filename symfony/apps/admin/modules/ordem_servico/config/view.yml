@@ -3,12 +3,12 @@ indexSuccess:
   stylesheets:    [admin/jquery.dataTables.min.css,admin/buttons.dataTables.min.css]
 
 editSuccess:
-  javascripts:    [admin/chosen.jquery.js,admin/os.js]
-  stylesheets:    [admin/chosen.css]
+  javascripts:    [admin/chosen.jquery.js,admin/jquery.datetimepicker.full.min.js,admin/os.js]
+  stylesheets:    [admin/chosen.css, admin/jquery.datetimepicker.css]
 
 newSuccess:
-  javascripts:    [admin/chosen.jquery.js,admin/os.js]
-  stylesheets:    [admin/chosen.css]
+  javascripts:    [admin/chosen.jquery.js,admin/jquery.datetimepicker.full.min.js,admin/os.js]
+  stylesheets:    [admin/chosen.css,admin/jquery.datetimepicker.css]
 
 listShowSuccess:
   stylesheets:    [admin/first-layout.css]
