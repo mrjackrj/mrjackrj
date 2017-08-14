@@ -14,7 +14,7 @@
       $('#tab_2').trigger('click');
     }
 
-    $('#tab_3').removeClass('active');
+    $('.tab-pane[id=3]').removeClass('active');
   });
 </script>
 
