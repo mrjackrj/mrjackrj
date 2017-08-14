@@ -77,7 +77,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
 
   public function getFormDisplay()
   {
-    return array(  0 => 'modelo_id',  1 => 'pecas_list',  2 => 'defeito',  3 => 'cliente_id',  4 => 'comentario',  5 => 'pagamento',  6 => 'valor',  7 => 'preco_dinheiro',  8 => 'preco_cartao',  9 => 'testado',  10 => 'imei',  11 => 'com_senha',  12 => 'senha',  13 => 'garantia',  14 => 'data_retirada',  15 => 'status',  16 => 'mensagem_impressao',);
+    return array(  0 => 'modelo_id',  1 => 'pecas_list',  2 => 'defeito',  3 => 'cliente_id',  4 => 'comentario',  5 => 'pagamento',  6 => 'valor',  7 => 'preco_dinheiro',  8 => 'preco_cartao',  9 => 'testado',  10 => 'observacoes',  11 => 'lista_checagem',  12 => 'imei',  13 => 'com_senha',  14 => 'senha',  15 => 'garantia',  16 => 'data_retirada',  17 => 'status',  18 => 'mensagem_impressao',);
   }
 
   public function getEditDisplay()
@@ -105,6 +105,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
       'defeito' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'comentario' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'pagamento' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Enum',),
+      'observacoes' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'testado' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Boolean',  'label' => 'Aparelho Testado?',),
       'imei' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',  'label' => 'IMEI',),
       'com_senha' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Boolean',  'label' => 'Senha?',),
@@ -117,6 +118,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
       'created_at' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',  'label' => 'Data de Criação',),
       'updated_at' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',  'label' => 'Data de Modificação',),
       'pecas_list' => array(  'is_link' => false,  'is_real' => false,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',  'label' => 'Peças',),
+      'lista_checagem' => array(  'is_link' => false,  'is_real' => false,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',  'label' => 'Lista de Checagem',),
     );
   }
 
@@ -130,6 +132,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
       'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
+      'observacoes' => array(),
       'testado' => array(),
       'imei' => array(),
       'com_senha' => array(),
@@ -155,6 +158,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
       'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
+      'observacoes' => array(),
       'testado' => array(),
       'imei' => array(),
       'com_senha' => array(),
@@ -180,6 +184,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
       'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
+      'observacoes' => array(),
       'testado' => array(),
       'imei' => array(),
       'com_senha' => array(),
@@ -205,6 +210,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
       'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
+      'observacoes' => array(),
       'testado' => array(),
       'imei' => array(),
       'com_senha' => array(),
@@ -230,6 +236,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
       'defeito' => array(),
       'comentario' => array(),
       'pagamento' => array(),
+      'observacoes' => array(),
       'testado' => array(),
       'imei' => array(),
       'com_senha' => array(),
