@@ -11,9 +11,18 @@
     <link href="/css/admin/bootstrap.min.css" rel="stylesheet">
     <link href="/css/admin/first-layout.css" rel="stylesheet">
     <style type="text/css">
+        body {
+          font-family: Poppins,sans-serif;
+          color:#737373;
+          font-size: 12px;
+        }
+
         table {
-            border: 1px solid #000;
-            width: 100%;
+            border: 1px solid #e6e6e6;
+            width: 90%;
+            font-family: Poppins,sans-serif;
+            margin:0 0 10px;
+            font-size: 11px;
         }
 
         td, th {
@@ -42,7 +51,7 @@
         }
     </style>
   </head>
-  <body onload="">
+  <body onload="loadPrint();">
     <?php use_helper('I18N', 'Date') ?>
     <div class="page-content container-fluid" id="printable">
       <div class="widget">
@@ -94,6 +103,26 @@
           <div class="row">
             <div class="col-md-4">
               <p>Comentários: <?php echo $ordem_servico->getComentario() ?></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">&nbsp;</div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <?php $pecas = array(); ?>
+              <?php foreach ($ordem_servico->getPecas() as $key => $peca): ?>
+                  <?php $pecas[] = $peca ?>
+              <?php endforeach; ?>
+              <p><b>
+                Recebemos de <?php echo $ordem_servico->getCliente() ?>,
+                CPF <?php echo $ordem_servico->getCliente()->getCpf() ?>,
+                o valor de R$ <?php echo $ordem_servico->getValor() ?> referente
+                ao reparo do defeito <?php echo $ordem_servico->getDefeito() ?>,
+                incluindo as peças "<i><?php echo implode(", ", $pecas)?></i>",
+                no aparelho <?php echo $ordem_servico->getModelo()->getMarca() ?>
+                <?php echo $ordem_servico->getModelo() ?>.
+              </b></p>
             </div>
           </div>
         </div>

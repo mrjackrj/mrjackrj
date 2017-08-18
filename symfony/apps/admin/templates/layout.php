@@ -74,11 +74,11 @@
                   <li class="<?php if ( $sf_context->getModuleName() == 'peca' ) echo 'active' ?>"><a href="<?php echo url_for('@peca') ?>"><i class="fa fa-puzzle-piece"></i> Peças</a></li>
                 <?php endif ?>
                 <li class="<?php if ( $sf_context->getModuleName() == 'cliente' ) echo 'active' ?>"><a href="<?php echo url_for('@cliente') ?>"><i class="fa fa-users"></i> Clientes</a></li>
-                <li class="<?php if ( $sf_context->getModuleName() == 'ordem_servico' ) echo 'active' ?>"><a href="<?php echo url_for('@ordem_servico') ?>"><i class="fa fa-file-text"></i> Ordem de Serviço</a></li>
+                <li class="<?php if ( $sf_context->getModuleName() == 'ordem_servico' ) echo 'active' ?>"><a href="<?php echo url_for('@ordem_servico') ?>"><i class="fa fa-file-text"></i> OS's</a></li>
                 <?php if($sf_user->getGuardUser()->hasGroup('Administradores')): ?>
                   <li class="<?php if ( $sf_context->getModuleName() == 'contato' ) echo 'active' ?>"><a href="<?php echo url_for('@contato') ?>"><i class="fa fa-phone"></i> Contatos</a></li>
                   <li class="<?php if ( $sf_context->getModuleName() == 'sf_guard_user' ) echo 'active' ?>"><a href="<?php echo url_for('@sf_guard_user') ?>"><i class="fa fa-user"></i> Usuários</a></li>
-                  <li class="<?php if ( $sf_context->getModuleName() == 'sfGuardGroup' ) echo 'active' ?>"><a href="<?php echo url_for('@sf_guard_group') ?>"><i class="fa fa-group"></i> Grupos de Acesso</a></li>
+                  <li class="<?php if ( $sf_context->getModuleName() == 'sfGuardGroup' ) echo 'active' ?>"><a href="<?php echo url_for('@sf_guard_group') ?>"><i class="fa fa-group"></i> Perfis</a></li>
                 <?php endif ?>
               <?php endif ?>
             </ul>
