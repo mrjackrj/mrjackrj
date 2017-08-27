@@ -6,7 +6,7 @@ jQuery(function($) {
     var columns     = JSON.parse($('.export_area .columns').text().trim());
     var title       = 'MR. Jack - Assistencia Tecnica - '+Math.floor(Date.now());
 
-    if(module == 'cliente' && urlSplited[4] != 'edit') {
+    if(module != 'cliente' || (module == 'cliente' && urlSplited[4] != 'edit')) {
       $('.export_table').DataTable({
           dom: 'Brt',
           ajax: {
