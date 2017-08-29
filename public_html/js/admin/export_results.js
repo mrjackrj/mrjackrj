@@ -2,7 +2,7 @@ jQuery(function($) {
   if($('.export_area').length) {
     var url         = window.location.href;
     var urlSplited  = url.replace("http://","").split("/");
-    var module      = urlSplited[2];
+    var module      = urlSplited[2].replace(/\?(.*)/,"");
     var columns     = JSON.parse($('.export_area .columns').text().trim());
     var title       = 'MR. Jack - Assistencia Tecnica - '+Math.floor(Date.now());
 
