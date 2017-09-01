@@ -39,4 +39,30 @@ class marcaActions extends autoMarcaActions
 
       return $this->renderText(json_encode($data));
   }
+
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
+
+    $marca = $this->getRoute()->getObject();
+    $modeloIds = array();
+
+    foreach ($marca->getModelos() as $key => $modelo) {
+      $modeloIds[] = $modelo->getId();
+    }
+
+    if(count(OrdemServicoTable::getInstance()->findByModeloIds($modeloIds))) {
+      $this->getUser()->setFlash('error', 'Não é possível remover essa marca, pois ela possui modelos vinculados a uma ou mais OS`s.');
+      $this->redirect('@marca');
+    }
+
+    if ($marca->delete())
+    {
+      $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+    }
+
+    $this->redirect('@marca');
+  }
 }

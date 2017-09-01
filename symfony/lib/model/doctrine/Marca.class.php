@@ -15,4 +15,16 @@ class Marca extends BaseMarca
   public function __toString() {
 		return $this->getDescricao();
 	}
+
+  public function delete(Doctrine_Connection $conn = null) {
+		foreach ($this->getModelos() as $key => $modelo) {
+    	$modelo->delete();
+    }
+
+		return parent::delete($conn);
+	}
+
+  public function getModelos() {
+    return ModeloTable::getInstance()->findByMarcaId($this->getId());
+  }
 }

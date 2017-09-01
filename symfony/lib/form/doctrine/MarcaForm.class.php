@@ -12,6 +12,8 @@ class MarcaForm extends BaseMarcaForm
 {
   public function configure()
   {
+    unset($this['slug']);
+
     $this->widgetSchema['imagem'] = new sfWidgetFormInputFileEditable(array(
         'file_src'  => '/uploads/marca/'.$this->getObject()->getImagem(),
         'edit_mode' => strlen($this->getObject()->getImagem()),

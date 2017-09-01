@@ -24,7 +24,6 @@ generator:
         batch_actions:  []
         object_actions:
           _edit: { label: Editar }
-          _delete: { label: Excluir }
       filter:
         display: [nome, cpf, email, cidade, estado]
       form:    ~

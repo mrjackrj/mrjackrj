@@ -23,6 +23,15 @@ class Modelo extends BaseModelo
     return '{"id":'.$this->getId().',"nome":"'.$this->getNome().'","pecas":['.implode(",", $pecas).']}';
   }
 
+  public function delete(Doctrine_Connection $conn = null) {
+    foreach ($this->getPecas() as $key => $peca) {
+      $modeloPeca = ModeloPecaTable::getInstance()->findByModeloIdAndPecaId($this->getId(), $peca->getId());
+      $modeloPeca->delete();
+    }
+
+		return parent::delete($conn);
+	}
+
   public function __toString() {
 		return $this->getNome();
 	}
