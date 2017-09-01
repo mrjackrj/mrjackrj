@@ -39,4 +39,25 @@ class pecaActions extends autoPecaActions
 
       return $this->renderText(json_encode($data));
   }
+
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
+
+    $peca = $this->getRoute()->getObject();
+
+    if(count(OrdemServicoPecaTable::getInstance()->findByPecaId($peca->getId()))) {
+      $this->getUser()->setFlash('error', 'Não é possível remover essa peça, pois ela está vinculada a uma ou mais OS`s.');
+      $this->redirect('@peca');
+    }
+
+    if ($peca->delete())
+    {
+      $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+    }
+
+    $this->redirect('@peca');
+  }
 }

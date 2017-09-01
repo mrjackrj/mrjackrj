@@ -16,6 +16,7 @@ generator:
       actions: ~
       fields:
         created_at:      { label: Data de Criação }
+        modelos_list:   { label: Modelos }
       list:
         title:          Lista de Peças
         display:        [nome, created_at]

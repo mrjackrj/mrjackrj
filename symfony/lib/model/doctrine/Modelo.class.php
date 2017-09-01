@@ -24,10 +24,8 @@ class Modelo extends BaseModelo
   }
 
   public function delete(Doctrine_Connection $conn = null) {
-    foreach ($this->getPecas() as $key => $peca) {
-      $modeloPeca = ModeloPecaTable::getInstance()->findByModeloIdAndPecaId($this->getId(), $peca->getId());
-      $modeloPeca->delete();
-    }
+      $modeloPecas = ModeloPecaTable::getInstance()->findByModeloId($this->getId());
+      $modeloPecas->delete();
 
 		return parent::delete($conn);
 	}

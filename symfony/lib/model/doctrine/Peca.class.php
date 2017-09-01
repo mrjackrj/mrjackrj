@@ -15,4 +15,11 @@ class Peca extends BasePeca
   public function __toString() {
 		return $this->getNome();
 	}
+
+  public function delete(Doctrine_Connection $conn = null) {
+    $modelosPeca = ModeloPecaTable::getInstance()->findByPecaId($this->getId());
+  	$modelosPeca->delete();
+
+		return parent::delete($conn);
+	}
 }

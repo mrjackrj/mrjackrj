@@ -58,4 +58,25 @@ class modeloActions extends autoModeloActions
 
       return $this->renderText(json_encode($data));
   }
+
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
+
+    $modelo = $this->getRoute()->getObject();
+
+    if(count(OrdemServicoTable::getInstance()->findByModeloId($modelo->getId()))) {
+      $this->getUser()->setFlash('error', 'Não é possível remover esse modelo, pois ele está vinculado a uma ou mais OS`s.');
+      $this->redirect('@modelo');
+    }
+
+    if ($modelo->delete())
+    {
+      $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+    }
+
+    $this->redirect('@modelo');
+  }
 }

@@ -12,5 +12,6 @@ class PecaForm extends BasePecaForm
 {
   public function configure()
   {
+    unset($this['ordem_servico_list']);
   }
 }
