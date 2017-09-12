@@ -18,7 +18,7 @@ class ModeloForm extends BaseModeloForm
         'with_delete' => true,
         'delete_label' => 'Excluir Imagem',
         'template'  => '
-          <div>
+          <div class="thumbnail_container">
             %input%<br /><br /><br />
             <strong>Imagem atual:</strong><br />
             <img src="%file%" /><br />
@@ -37,18 +37,18 @@ class ModeloForm extends BaseModeloForm
     $this->widgetSchema['pecas_list']->setLabel('Peças');
   }
 
-  protected function doSave($con = null)
+  /*protected function doSave($con = null)
   {
     $save = parent::doSave($con);
 
     $image = $this->getValue('imagem');
 
     if($image) {
-      $thumbnail = new sfThumbnail(255, 320, false);
+      $thumbnail = new sfThumbnail(255, 320, false, false);
         $thumbnail->loadFile(sfConfig::get('sf_upload_dir').'/aparelho/'.$this->getObject()->getImagem());
         $thumbnail->save(sfConfig::get('sf_upload_dir').'/aparelho/'.$this->getObject()->getImagem(), $image->getType());
     }
 
     return $save;
-  }
+  }*/
 }

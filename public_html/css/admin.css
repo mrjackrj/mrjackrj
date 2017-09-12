@@ -4,3 +4,10 @@
 .double_list_select, .double_list_select-selected {
 	width: 300px !important;
 }
+
+.thumbnail_container img {
+	max-width: 250px;
+  max-height: 320px;
+  width: auto;
+  height: auto;
+}
