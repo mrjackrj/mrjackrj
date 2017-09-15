@@ -53,7 +53,7 @@ class marcaActions extends autoMarcaActions
       $modeloIds[] = $modelo->getId();
     }
 
-    if(count(OrdemServicoTable::getInstance()->findByModeloIds($modeloIds))) {
+    if(count($modeloIds) && count(OrdemServicoTable::getInstance()->findByModeloIds($modeloIds))) {
       $this->getUser()->setFlash('error', 'Não é possível remover essa marca, pois ela possui modelos vinculados a uma ou mais OS`s.');
       $this->redirect('@marca');
     }
