@@ -65,7 +65,7 @@ Modelo:
   columns:
     nome:            { type: string(100), notnull: true }
     imagem:          { type: string(250) }
-    marca_id:        { type: integer }
+    marca_id:        { type: integer, notnull: true }
     mostrar_site:    { type: boolean, default: 1 }
   relations:
     Marca:           { local: marca_id, foreign: id }
