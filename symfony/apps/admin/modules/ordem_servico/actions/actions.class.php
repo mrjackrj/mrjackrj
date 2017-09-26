@@ -17,13 +17,13 @@ class ordem_servicoActions extends autoOrdem_servicoActions
   {
     if($request->getParameter("type") == 'cliente') {
       $result = ClienteTable::getInstance()
-        ->findClienteByName($request['q'])
+        ->findClienteByName($request['q'], $request['limit'])
         ->toKeyValueArray('id', 'nome');
 
       return $this->renderText(json_encode($result));
     } else {
       $result = ModeloTable::getInstance()
-        ->findModeloByName($request['q'])
+        ->findModeloByName($request['q'], $request['limit'])
         ->toKeyValueArray('id', 'nome');
 
       return $this->renderText(json_encode($result));
