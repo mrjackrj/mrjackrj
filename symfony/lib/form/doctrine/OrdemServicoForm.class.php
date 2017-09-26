@@ -19,12 +19,14 @@ class OrdemServicoForm extends BaseOrdemServicoForm
 
     $this->widgetSchema['cliente_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
       'url' => '/admin.php/autocomplete?type=cliente',
+      'config' => '{max:20}',
       'model' => 'Cliente',
       'value_callback' => 'findOneById'
     ));
 
     $this->widgetSchema['modelo_id'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
       'url' => '/admin.php/autocomplete?type=modelo',
+      'config' => '{max:20}',
       'model' => 'Modelo',
       'value_callback' => 'findOneById'
     ));
