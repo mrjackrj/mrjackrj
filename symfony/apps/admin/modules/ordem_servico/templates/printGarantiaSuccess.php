@@ -9,15 +9,14 @@
     <link href="/css/admin/first-layout.css" rel="stylesheet" type="text/css">
     <style>
       .h4, h4 {font-size: 18px !important;}
-      .h4, .h5, .h6, h4, h5, h6 {margin-top: 10px !important;margin-bottom: 10px !important;}
+      .h4, .h5, .h6, h4, h5, h6 {margin: 0px;}
       body {font-family: Poppins,sans-serif;color:#737373;}
-      p, table, fieldset {font-family: Poppins,sans-serif;margin:0 0 10px;font-size: 11px;}
+      p, table, fieldset {font-family: Poppins,sans-serif;margin:0px;font-size: 11px;}
     </style>
     <script type="text/javascript">
         function loadPrint() {
             window.print();
             setTimeout(function () { window.close(); }, 100);
-            //window.open('', '_self', ''); window.close();
         }
     </script>
 </head>
@@ -53,7 +52,7 @@
                 <p>- Danos provocados por água.</p>
                 <p>- Dispositivos desbloqueados com métodos não aceitos pelo fabricante (como jailbreak ou Root).</p>
                 <p>- Adulteração do hardware interno: dependendo das condições, um dano interno pode impossibilitar um conserto. O técnico do Mr Jack será capaz de explicar em maiores detalhes após diagnosticar o seu dispositivo específico. Em caso de dúvida, recomendamos que você não tente consertar por conta própria, pois um dano pode resultar na impossibilidade de conserto do seu dispositivo.</p>
-                <p>- Um botão “home” que não funcione/leitor Biométrico danificado ou cortado.</p><br /><br /><br /><br /><br />
+                <p>- Um botão “home” que não funcione/leitor Biométrico danificado ou cortado.</p>
                 <fieldset>
                   <legend><b>Lista de Checagem</b></legend>
                   <table style="border:none">
@@ -63,9 +62,17 @@
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
                         </td>
+                        <td width="20%"><b>Alto Falante:</b></td>
+                        <td>
+                          <text>( ) SIM  ( ) NÃO</text>
+                        </td>
                       </tr>
                       <tr>
                         <td><b>Touch Screen:</b></td>
+                        <td>
+                          <text>( ) SIM  ( ) NÃO</text>
+                        </td>
+                        <td><b>Audio Auricular:</b></td>
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
                         </td>
@@ -75,9 +82,17 @@
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
                         </td>
+                        <td><b>Microfone:</b></td>
+                        <td>
+                          <text>( ) SIM  ( ) NÃO</text>
+                        </td>
                       </tr>
                       <tr>
                         <td><b>Sensor de Proximidade:</b></td>
+                        <td>
+                          <text>( ) SIM  ( ) NÃO</text>
+                        </td>
+                        <td><b>Câmera:</b></td>
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
                         </td>
@@ -87,9 +102,17 @@
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
                         </td>
+                        <td><b>Conector Carregador:</b></td>
+                        <td>
+                          <text>( ) SIM  ( ) NÃO</text>
+                        </td>
                       </tr>
                       <tr>
                         <td><b>WiFi:</b></td>
+                        <td>
+                          <text>( ) SIM  ( ) NÃO</text>
+                        </td>
+                        <td><b>Conector Fone:</b></td>
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
                         </td>
@@ -99,44 +122,6 @@
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
                         </td>
-                      </tr>
-                      <tr>
-                        <td><b>Alto Falante:</b></td>
-                        <td>
-                          <text>( ) SIM  ( ) NÃO</text>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><b>Audio Auricular:</b></td>
-                        <td>
-                          <text>( ) SIM  ( ) NÃO</text>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><b>Microfone:</b></td>
-                        <td>
-                          <text>( ) SIM  ( ) NÃO</text>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><b>Câmera:</b></td>
-                        <td>
-                          <text>( ) SIM  ( ) NÃO</text>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><b>Conector Carregador:</b></td>
-                        <td>
-                          <text>( ) SIM  ( ) NÃO</text>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><b>Conector Fone:</b></td>
-                        <td>
-                          <text>( ) SIM  ( ) NÃO</text>
-                        </td>
-                      </tr>
-                      <tr>
                         <td><b>Conector SD:</b></td>
                         <td>
                           <text>( ) SIM  ( ) NÃO</text>
