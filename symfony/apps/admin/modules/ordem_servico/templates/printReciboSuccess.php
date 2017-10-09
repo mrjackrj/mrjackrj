@@ -4,7 +4,6 @@
         function loadPrint() {
             window.print();
             setTimeout(function () { window.close(); }, 100);
-            //window.open('', '_self', ''); window.close();
         }
     </script>
     <link rel="shortcut icon" href="/assets/img/ico/favicon.png" />
@@ -18,7 +17,6 @@
         }
 
         table {
-            border: 1px solid #e6e6e6;
             width: 90%;
             font-family: Poppins,sans-serif;
             margin:0 0 10px;
@@ -56,73 +54,81 @@
     <div class="page-content container-fluid" id="printable">
       <div class="widget">
         <div class="widget-body">
-          <div class="row">
-            <div class="col-sm-4">
-              <address>
-                <strong><?php echo $ordem_servico->getCliente() ?></strong><br>
-                <?php echo $ordem_servico->getCliente()->getEndereco() ?><br>
-                <?php echo $ordem_servico->getCliente()->getCidade() ?> - <?php echo $ordem_servico->getCliente()->getEstado() ?> <br>
-                <abbr title="Phone">T:</abbr> <?php echo $ordem_servico->getCliente()->getTelefone() ?><br>
-                <a href="mailto:#"><?php echo $ordem_servico->getCliente()->getEmail() ?></a>
-              </address>
-            </div>
-            <div class="col-sm-4">
-              <address><strong>Filial</strong><br><?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getEndereco() ?><br><?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getBairro() ?><br><abbr title="Phone">T:</abbr> <?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getTelefone1() ?><br><a href="mailto:#"></a></address>
-            </div>
-            <div class="col-sm-4">
-              <ul class="list-unstyled">
-                <li>Ordem de serviço <strong><?php echo $ordem_servico->getId() ?></strong></li>
-                <li>Aberta em <?php echo format_date($ordem_servico->getCreatedAt(), "dd/MM/yyyy hh:mm:ss") ?></li>
-                <li>
-                    Data de Modificação: <?php echo format_date($ordem_servico->getUpdatedAt(), "dd/MM/yyyy hh:mm:ss") ?>
-                </li>
-                <?php echo $ordem_servico->getStatus() ?>
-              </ul>
-            </div>
-          </div>
+          <table cellspacing="7">
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <?php echo image_tag('logo_impressao.png', array('width'=>'300px')) ?>
+                </td>
+                <td style="font-size:14px;">
+                  CNPJ:21.746.885/0001-42<br />
+                  <?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getEndereco() ?>, <?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getNumero() ?> - <?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getComplemento() ?>
+                </td>
+              </tr>
+              <tr>
+                  <td colspan="2"></td>
+              </tr>
+            </tbody>
+          </table>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table">
               <thead>
                 <tr>
-                  <th>Aparelho</th>
-                  <th>Defeito</th>
-                  <th class="right">Status</th>
-                  <th class="right">Total</th>
+                  <th><b>Item</b></th>
+                  <th><b>Descrição</b></th>
+                  <th style="text-align:right;"><b>Valor</b></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="left"><?php echo $ordem_servico->getModelo() ?></td>
-                  <td class="left"><?php echo $ordem_servico->getDefeito() ?></td>
-                  <td class="right osStatus"><?php echo $ordem_servico->getStatus() ?></td>
-                  <td class="right">R$ <?php echo $ordem_servico->getValor() ?></td>
-                </tr>
+                <?php foreach ($ordem_servico->getPecas() as $key => $peca): ?>
+                  <?php $modelo_peca = ModeloPecaTable::getInstance()->findOneByModeloIdAndPecaId($ordem_servico->getModelo()->getId(), $peca->getId()) ?>
+                  <tr>
+                    <td align="left"><?php echo $key+1 ?></td>
+                    <td align="left"><?php echo $peca ?> - <?php echo $ordem_servico->getModelo() ?></td>
+                    <td style="text-align:right;">
+                      <?php if ($ordem_servico->getPagamento()=='Dinheiro'): ?>
+                        R$ <?php echo $modelo_peca->getPrecoDinheiro() ?></td>
+                      <?php else: ?>
+                        R$ <?php echo $modelo_peca->getPrecoCartao() ?>
+                      <?php endif; ?>
+                  </tr>
+                <?php endforeach; ?>
               </tbody>
+              <tfoot>
+                <tr>
+                  <th><b>Valor Total:</b></th>
+                  <th colspan="2" style="text-align:right;"><b>R$ <?php echo $ordem_servico->getValor() ?></b></th>
+                </tr>
+                <tr>
+                  <th><b>Forma de Pagamento:</b></th>
+                  <th colspan="2" style="text-align:right;"><b>R$ <?php echo $ordem_servico->getPagamento() ?></b></th>
+                </tr>
+              </tfoot>
             </table>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <p>Comentários: <?php echo $ordem_servico->getComentario() ?></p>
-            </div>
           </div>
           <div class="row">
             <div class="col-md-12">&nbsp;</div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <?php $pecas = array(); ?>
-              <?php foreach ($ordem_servico->getPecas() as $key => $peca): ?>
-                  <?php $pecas[] = $peca ?>
-              <?php endforeach; ?>
-              <p><b>
-                Recebemos de <?php echo $ordem_servico->getCliente() ?>,
-                CPF <?php echo $ordem_servico->getCliente()->getCpf() ?>,
-                o valor de R$ <?php echo $ordem_servico->getValor() ?> referente
-                ao reparo do defeito <?php echo $ordem_servico->getDefeito() ?>,
-                incluindo as peças "<i><?php echo implode(", ", $pecas)?></i>",
-                no aparelho <?php echo $ordem_servico->getModelo()->getMarca() ?>
-                <?php echo $ordem_servico->getModelo() ?>.
-              </b></p>
+            <div class="col-md-12" style="text-align:center;width:100%">
+              <b>IDENTIFICAÇÃO DO CONSUMIDOR</b>
+              <div class="row">
+                <div class="col-md-12">&nbsp;</div>
+              </div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><?php echo $ordem_servico->getCliente() ?></td>
+                    <td style="text-align:right;">CPF: <?php echo $ordem_servico->getCliente()->getCpf() ?></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="text-align:center;width:100%">
+              <?php echo image_tag('qr-code-mrjack.png') ?>
             </div>
           </div>
         </div>
