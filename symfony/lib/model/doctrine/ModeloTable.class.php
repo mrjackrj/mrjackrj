@@ -26,4 +26,13 @@ class ModeloTable extends Doctrine_Table
          ->limit($limit)
          ->execute();
     }
+
+    public function findByMarcaIdAndMostrarSiteOrdered($marca_id, $mostrar_site) {
+      return Doctrine_Query::create()
+			   ->from('Modelo m')
+         ->where("m.marca_id = ?", $marca_id)
+         ->andWhere('m.mostrar_site = ?', $mostrar_site)
+         ->orderBy('m.nome')
+         ->execute();
+    }
 }

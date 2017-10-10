@@ -18,6 +18,6 @@ class aparelhosActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $marca            = MarcaTable::getInstance()->findOneBySlug($request->getParameter('marca'));
-    $this->aparelhos  = ModeloTable::getInstance()->findByMarcaIdAndMostrarSite($marca->getId(), 1);
+    $this->aparelhos  = ModeloTable::getInstance()->findByMarcaIdAndMostrarSiteOrdered($marca->getId(), 1);
   }
 }

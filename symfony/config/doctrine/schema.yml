@@ -67,6 +67,7 @@ Modelo:
     imagem:          { type: string(250) }
     marca_id:        { type: integer, notnull: true }
     mostrar_site:    { type: boolean, default: 1 }
+    mostrar_os:      { type: boolean, default: 1 }
   relations:
     Marca:           { local: marca_id, foreign: id }
     Pecas:           { onDelete: CASCADE, class: Peca, local: modelo_id, foreign: peca_id, refClass: ModeloPeca }

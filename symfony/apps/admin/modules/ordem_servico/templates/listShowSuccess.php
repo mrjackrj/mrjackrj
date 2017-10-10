@@ -57,27 +57,27 @@
               </div>
           </div>
           <div class="table-responsive">
+            <?php if ($ordem_servico->getModelo()->getMostrarOs()): ?>
               <table class="table table-striped">
-                  <thead>
-                      <tr>
+                <thead>
+                  <tr>
 
-                          <th>Aparelho</th>
-                          <th>Defeito</th>
-                          <th class="right">Status</th>
-                          <th class="right">Total</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td class="left"><?php echo $ordem_servico->getModelo() ?></td>
-                          <td class="left"><?php echo $ordem_servico->getDefeito() ?></td>
-                          <td class="right osStatus"><?php echo $ordem_servico->getStatus() ?></td>
-                          <td class="right">R$ <?php echo $ordem_servico->getValor() ?></td>
-                      </tr>
-
-
-                  </tbody>
+                      <th>Aparelho</th>
+                      <th>Defeito</th>
+                      <th class="right">Status</th>
+                      <th class="right">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td class="left"><?php echo $ordem_servico->getModelo() ?></td>
+                      <td class="left"><?php echo $ordem_servico->getDefeito() ?></td>
+                      <td class="right osStatus"><?php echo $ordem_servico->getStatus() ?></td>
+                      <td class="right">R$ <?php echo $ordem_servico->getValor() ?></td>
+                  </tr>
+                </tbody>
               </table>
+            <?php endif; ?>
           </div>
           <div class="row">
               <div class="col-md-4">
