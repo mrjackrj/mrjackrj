@@ -22,7 +22,7 @@ class ModeloTable extends Doctrine_Table
       return Doctrine_Query::create()
 			   ->from('Modelo m')
          ->where("m.nome LIKE '%{$name}%'")
-         ->andWhere("m.mostrar_site = 1")
+         ->andWhere("m.mostrar_os = 1")
          ->limit($limit)
          ->execute();
     }

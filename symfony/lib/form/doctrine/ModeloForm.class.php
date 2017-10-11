@@ -36,19 +36,4 @@ class ModeloForm extends BaseModeloForm
     $this->validatorSchema['imagem_delete'] = new sfValidatorPass();
     $this->widgetSchema['pecas_list']->setLabel('Peças');
   }
-
-  /*protected function doSave($con = null)
-  {
-    $save = parent::doSave($con);
-
-    $image = $this->getValue('imagem');
-
-    if($image) {
-      $thumbnail = new sfThumbnail(255, 320, false, false);
-        $thumbnail->loadFile(sfConfig::get('sf_upload_dir').'/aparelho/'.$this->getObject()->getImagem());
-        $thumbnail->save(sfConfig::get('sf_upload_dir').'/aparelho/'.$this->getObject()->getImagem(), $image->getType());
-    }
-
-    return $save;
-  }*/
 }
