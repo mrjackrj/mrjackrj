@@ -10,8 +10,8 @@
 .ssh/
 .viminfo
 php_erro
-public_html/uploads/*
-public_html/html*
+www/uploads/*
+www/html*
 symfony/data/sql/*
 symfony/cache/*
 symfony/log/*
