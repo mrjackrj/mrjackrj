@@ -1,5 +1,15 @@
 .DS_Store
 .tm_properties
+.bash_extras
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.ftpaccess
+.gitconfig
+.ssh/
+.viminfo
+php_erro
 public_html/uploads/*
 public_html/html*
 symfony/data/sql/*
