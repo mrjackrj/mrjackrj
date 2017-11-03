@@ -7,7 +7,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
   {
-    sfConfig::set('sf_web_dir', dirname(__FILE__).'/../../public_html');
+    sfConfig::set('sf_web_dir', dirname(__FILE__).'/../../www');
     sfConfig::set('sf_upload_dir', sfConfig::get('sf_web_dir').'/uploads');
 
     $this->enablePlugins(array(
