@@ -64,7 +64,8 @@
                         <?php echo image_tag('logo_impressao.png', array('width'=>'300px')) ?><br />
                           CNPJ:21.746.885/0001-42<br />
                           <?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getEndereco() ?>, <?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getNumero() ?> - <?php echo $ordem_servico->getUsuarioCadastro()->getFilial()->getComplemento() ?><br />
-                          Para verificar o status da OS: mrjackrj.com.br
+                          Para verificar o status da OS: mrjackrj.com.br<br />
+                          <b>IMPORTANTE: Aparelhos que não sejam retirados (tendo ou não feito o serviço) em até 3 meses serão descartados.</b>
                       </td>
                       <td style="font-size:14px;">
                           <span style="color:red;font-size:medium;font-weight:bold;"><?php echo $ordem_servico->getId() ?></span><br />
