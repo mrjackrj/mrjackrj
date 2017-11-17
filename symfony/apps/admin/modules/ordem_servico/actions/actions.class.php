@@ -135,7 +135,7 @@ class ordem_servicoActions extends autoOrdem_servicoActions
     }
   }
 
-  public function executeListShow(sfWebRequest $request)
+  public function executeView(sfWebRequest $request)
 	{
 		$this->ordem_servico = OrdemServicoTable::getInstance()->find($request->getParameter('id'));
 

@@ -29,7 +29,7 @@ generator:
         sort:           ~
         batch_actions:  []
         object_actions:
-          show: { label: Ver }
+          view: { label: Ver }
           _edit: { label: Editar }
         actions:
           _new: { label: "Nova"}
