@@ -36,7 +36,7 @@ generator:
       filter:
           display: [modelo_id, cliente_id, pagamento, testado, imei, data_retirada, status]
       form:
-        display: [modelo_id, pecas_list, defeito, testado, lista_checagem, cliente_id, comentario, pagamento, valor, preco_dinheiro, preco_cartao, observacoes, imei, com_senha, senha, garantia, status, mensagem_impressao]
+        display: [cliente_id, modelo_id, imei, com_senha, senha, defeito, testado, lista_checagem, comentario, pecas_list, pagamento, valor, preco_dinheiro, preco_cartao, garantia, status, observacoes, mensagem_impressao]
       edit:
         title: Editando OS
         actions:

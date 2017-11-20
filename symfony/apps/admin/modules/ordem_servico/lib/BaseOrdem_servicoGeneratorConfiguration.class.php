@@ -32,7 +32,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
 
   public function getListObjectActions()
   {
-    return array(  'show' =>   array(    'label' => 'Ver',  ),  '_edit' =>   array(    'label' => 'Editar',  ),);
+    return array(  'view' =>   array(    'label' => 'Ver',  ),  '_edit' =>   array(    'label' => 'Editar',  ),);
   }
 
   public function getListActions()
@@ -77,7 +77,7 @@ abstract class BaseOrdem_servicoGeneratorConfiguration extends sfModelGeneratorC
 
   public function getFormDisplay()
   {
-    return array(  0 => 'modelo_id',  1 => 'pecas_list',  2 => 'defeito',  3 => 'cliente_id',  4 => 'comentario',  5 => 'pagamento',  6 => 'valor',  7 => 'preco_dinheiro',  8 => 'preco_cartao',  9 => 'testado',  10 => 'observacoes',  11 => 'lista_checagem',  12 => 'imei',  13 => 'com_senha',  14 => 'senha',  15 => 'garantia',  16 => 'data_retirada',  17 => 'status',  18 => 'mensagem_impressao',);
+    return array(  0 => 'cliente_id',  1 => 'modelo_id',  2 => 'imei',  3 => 'com_senha',  4 => 'senha',  5 => 'defeito',  6 => 'testado',  7 => 'lista_checagem',  8 => 'comentario',  9 => 'pecas_list',  10 => 'pagamento',  11 => 'valor',  12 => 'preco_dinheiro',  13 => 'preco_cartao',  14 => 'garantia',  15 => 'status',  16 => 'observacoes',  17 => 'mensagem_impressao',);
   }
 
   public function getEditDisplay()
