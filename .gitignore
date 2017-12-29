@@ -9,6 +9,8 @@
 .gitconfig
 .ssh/
 .viminfo
+.htaccess
+web.config
 php_erro
 www/uploads/*
 www/html*
